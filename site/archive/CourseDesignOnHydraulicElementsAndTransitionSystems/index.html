@@ -1,0 +1,2663 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../CourseDesignOfMechanismDesign/">
+      
+      
+        <link rel="next" href="../CourseDesignOnMechanicalAndElectronicTransmissionAndControl/">
+      
+      <link rel="icon" href="../../assets/book.svg">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+    
+    
+      
+        <title>课程设计：65t-55m岸桥挂舱保护液压缸设计 - Q_C Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.c4a75a56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../css/jetbrainsmono.css">
+    
+      <link rel="stylesheet" href="../../css/katex.min.css">
+    
+      <link rel="stylesheet" href="../../css/tasklist.css">
+    
+      <link rel="stylesheet" href="../../css/custom.css">
+    
+      <link rel="stylesheet" href="../../css/card.css">
+    
+      <link rel="stylesheet" href="../../css/flink.css">
+    
+      <link rel="stylesheet" href="../../css/changelog_extra.css">
+    
+      <link rel="stylesheet" href="../../css/heti.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="Q_C Notebook" class="md-header__button md-logo" aria-label="Q_C Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Q_C Notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              课程设计：65t-55m岸桥挂舱保护液压缸设计
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../CourseDesignOfMechanicalPrinciple/" class="md-tabs__link md-tabs__link--active">
+        Archive
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../computer/" class="md-tabs__link">
+        Computer
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../economy/" class="md-tabs__link">
+        Economy
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../health/" class="md-tabs__link">
+        Health
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../others/2022%E5%B9%B4/2022-2023%E5%B9%B4%E5%BA%A6%E7%A7%9F%E6%88%BF%E6%96%B9%E6%A1%88/" class="md-tabs__link">
+        Others
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../report/2021-2022%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" class="md-tabs__link">
+        Report
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Q_C Notebook" class="md-nav__button md-logo" aria-label="Q_C Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    Q_C Notebook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Archive
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Archive
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CourseDesignOfMechanicalPrinciple/" class="md-nav__link">
+        课程设计：牛头刨床机构的分析与综合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CourseDesignOfMechanismDesign/" class="md-nav__link">
+        课程设计：双级圆柱斜齿轮减速器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          课程设计：65t-55m岸桥挂舱保护液压缸设计
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        课程设计：65t-55m岸桥挂舱保护液压缸设计
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    要求完成的主要任务
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    液压缸设计方案的分析与拟定
+  </a>
+  
+    <nav class="md-nav" aria-label="液压缸设计方案的分析与拟定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    挂舱保护原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    挂舱保护液压缸的特性分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    液压缸的设计要求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    液压缸材料的选取
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    液压缸主要技术参数的计算及校核
+  </a>
+  
+    <nav class="md-nav" aria-label="液压缸主要技术参数的计算及校核">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#d" class="md-nav__link">
+    缸筒的内径 \(D\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d_1" class="md-nav__link">
+    活塞杆直径 \(d\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h" class="md-nav__link">
+    最小导向长度 \(H\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l_1" class="md-nav__link">
+    缸筒长度 \({L}_{{1}}\)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    液压缸主要结构技术参数的计算及校核
+  </a>
+  
+    <nav class="md-nav" aria-label="液压缸主要结构技术参数的计算及校核">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delta" class="md-nav__link">
+    缸筒壁厚 \(\delta\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    油口尺寸
+  </a>
+  
+    <nav class="md-nav" aria-label="油口尺寸">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    回程流量的计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    油口直径的计算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    液压缸的结构设计
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    液压缸主要零部件的计算与选择
+  </a>
+  
+    <nav class="md-nav" aria-label="液压缸主要零部件的计算与选择">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    液压缸的连接计算
+  </a>
+  
+    <nav class="md-nav" aria-label="液压缸的连接计算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    活塞杆连接螺纹的计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    中间耳轴焊接强度计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    法兰连接螺栓强度计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    缸筒螺纹连接强度计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    耳轴强度计算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    活塞杆的导向、密封和防尘
+  </a>
+  
+    <nav class="md-nav" aria-label="活塞杆的导向、密封和防尘">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    活塞杆导向的选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    活塞杆密封的选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    活塞杆防尘装置的选择
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    耳环的选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    缓冲装置的选择
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    设计图纸
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    参考文献
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CourseDesignOnMechanicalAndElectronicTransmissionAndControl/" class="md-nav__link">
+        课程设计：MQ4035门座起重机变幅机构变频调速电气控制线路设计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GraduationDesign_WHUT_Archive/" class="md-nav__link">
+        本科毕业设计：一种直角坐标式船舶系泊辅助机械臂设计与分析
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../computer/">Computer</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Computer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Algorithm
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Algorithm
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/algorithm/Introduction2Algorithms/" class="md-nav__link">
+        数据结构与算法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Language
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Language
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/language/CPPBase/" class="md-nav__link">
+        C++基础回顾
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/language/CPPEffective/" class="md-nav__link">
+        Effective C++ 笔记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/language/LearnCPP/" class="md-nav__link">
+        C++ Primer 阅读笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          Network
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Network
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/network/ComputerNetworking/" class="md-nav__link">
+        计算机网络
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/network/ErrorOfNetwork/" class="md-nav__link">
+        常见网络通信错误码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/network/PersonalNAS/" class="md-nav__link">
+        个人 NAS 解决方案
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          Others
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Others
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/others/DesignPattern/" class="md-nav__link">
+        设计模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+          System
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/system/LinuxCrash/" class="md-nav__link">
+        Linux快速入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/system/OperatorSystemConcept/" class="md-nav__link">
+        操作系统：应用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/system/OperatorSystemDesign/" class="md-nav__link">
+        操作系统：设计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/system/PipelineInCPU%26OS%26Net/" class="md-nav__link">
+        CPU、操作系统和网络中的流水线
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/tools/FireFrame/" class="md-nav__link">
+        火焰图使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/tools/GDB/" class="md-nav__link">
+        GDB简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/tools/TheArtofCommandLine/" class="md-nav__link">
+        命令行的艺术
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../computer/tools/UsefulWebsite/" class="md-nav__link">
+        编程常用网站
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../economy/">Economy</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Economy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          个人研究
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          个人研究
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../economy/%E4%B8%AA%E4%BA%BA%E7%A0%94%E7%A9%B6/%E4%B8%AA%E4%BA%BA%E6%89%80%E5%BE%97%E7%A8%8E%E7%A0%94%E7%A9%B6/" class="md-nav__link">
+        个人所得税研究
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../economy/%E4%B8%AA%E4%BA%BA%E7%A0%94%E7%A9%B6/%E4%BA%94%E9%99%A9%E4%B8%80%E9%87%91%E7%A0%94%E7%A9%B6/" class="md-nav__link">
+        五险一金研究
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          房产万事
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          房产万事
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../economy/%E6%88%BF%E4%BA%A7%E4%B8%87%E4%BA%8B/%E6%88%BF%E4%BA%A7%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        房产风险评估
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../economy/%E6%88%BF%E4%BA%A7%E4%B8%87%E4%BA%8B/%E6%AD%A6%E6%B1%89%E5%B0%8F%E5%8C%BA%E7%8E%AF%E5%A2%83%E6%83%85%E5%86%B5%E8%B0%83%E6%9F%A5/" class="md-nav__link">
+        武汉小区环境情况调查
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../health/">Health</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Health
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../health/annual_examination2022/" class="md-nav__link">
+        2022年度体检
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../health/annual_examination2023/" class="md-nav__link">
+        2023肠胃检查
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Others
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Others
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+          2022年
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          2022年
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/2022%E5%B9%B4/2022-2023%E5%B9%B4%E5%BA%A6%E7%A7%9F%E6%88%BF%E6%96%B9%E6%A1%88/" class="md-nav__link">
+        2022-2023 年度租房方案
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          2023年
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          2023年
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/2023%E5%B9%B4/2023%E5%B9%B4%E4%BF%9D%E9%99%A9%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        2023 年个人保险配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/2023%E5%B9%B4/2023%E5%B9%B4%E5%8F%B0%E5%BC%8F%E6%9C%BA%E8%A3%85%E6%9C%BA%E6%96%B9%E6%A1%88/" class="md-nav__link">
+        2023 年台式机选配方案
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          Report
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Report
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../report/2021-2022%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" class="md-nav__link">
+        2021-2022年度报告
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../report/2022-2023%E7%89%B9%E5%88%AB%E5%9B%9E%E9%A1%BE/" class="md-nav__link">
+        2023 中期特别回顾
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    要求完成的主要任务
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    液压缸设计方案的分析与拟定
+  </a>
+  
+    <nav class="md-nav" aria-label="液压缸设计方案的分析与拟定">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    挂舱保护原理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    挂舱保护液压缸的特性分析
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    液压缸的设计要求
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    液压缸材料的选取
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    液压缸主要技术参数的计算及校核
+  </a>
+  
+    <nav class="md-nav" aria-label="液压缸主要技术参数的计算及校核">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#d" class="md-nav__link">
+    缸筒的内径 \(D\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#d_1" class="md-nav__link">
+    活塞杆直径 \(d\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#h" class="md-nav__link">
+    最小导向长度 \(H\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#l_1" class="md-nav__link">
+    缸筒长度 \({L}_{{1}}\)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    液压缸主要结构技术参数的计算及校核
+  </a>
+  
+    <nav class="md-nav" aria-label="液压缸主要结构技术参数的计算及校核">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#delta" class="md-nav__link">
+    缸筒壁厚 \(\delta\)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    油口尺寸
+  </a>
+  
+    <nav class="md-nav" aria-label="油口尺寸">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    回程流量的计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    油口直径的计算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    液压缸的结构设计
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    液压缸主要零部件的计算与选择
+  </a>
+  
+    <nav class="md-nav" aria-label="液压缸主要零部件的计算与选择">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    液压缸的连接计算
+  </a>
+  
+    <nav class="md-nav" aria-label="液压缸的连接计算">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    活塞杆连接螺纹的计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    中间耳轴焊接强度计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    法兰连接螺栓强度计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    缸筒螺纹连接强度计算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    耳轴强度计算
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    活塞杆的导向、密封和防尘
+  </a>
+  
+    <nav class="md-nav" aria-label="活塞杆的导向、密封和防尘">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    活塞杆导向的选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    活塞杆密封的选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    活塞杆防尘装置的选择
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    耳环的选择
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    缓冲装置的选择
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    设计图纸
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    参考文献
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+  <nav class="md-tags" >
+    
+      
+      
+        <span class="md-tag">课程设计</span>
+      
+    
+      
+      
+        <span class="md-tag">液压</span>
+      
+    
+  </nav>
+
+
+
+
+  <h1>课程设计：65t-55m岸桥挂舱保护液压缸设计</h1>
+
+<!--more-->
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">math</span>
+</code></pre></div>
+<h2 id="_1">要求完成的主要任务<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ol>
+<li>所设计的挂舱保护液压缸为双作用单杆活塞缸，采用中间耳轴联接；能在海洋环境条件下可靠工作；具有回程速度快、内泄漏量极小、无外泄漏以及使用寿命长等特点；</li>
+<li>完成所设计挂舱保护液压缸的设计计算；</li>
+<li>完成所设计挂舱保护液压缸的结构设计，并绘制该挂舱保护液压缸的装配图；</li>
+<li>撰写挂舱保护液压缸设计计算说明书。</li>
+</ol>
+<h2 id="_2">液压缸设计方案的分析与拟定<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">挂舱保护原理<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>​       岸桥（岸边集装箱起重机）是现代港口集装箱装卸的关键设备，其作业效率反映了码头的装卸能力，其安全性能则是整条作业线连续运行指标及过程控制管理水准的体现。岸桥在工作过程中发生的事故主要有吊具与滑道或集装箱与滑道间出现钩挂，以及集装箱与下层集装箱之间的锁销未打开，从而出现所谓的挂舱现象。</p>
+<p><img alt="图 1 挂舱保护系统" src="https://cquf-piclib.oss-cn-hangzhou.aliyuncs.com/图 1 挂舱保护系统.png" /></p>
+<p>​       液压挂舱保护系统是目前主流的挂舱保护系统。它利用岸桥尾部的 4 个液压油缸来实现挂舱保护功能，其位置可以参考图 1 中液压油缸 1~4。岸桥正常工作时，液压缸活塞杆伸出一定距离，并锁定保持在该位置上，此阶段液压缸起支撑作用。此系统通过压力继电器来检测液压系统压力。当压力继电器检测到系统压力达到挂舱设定压力时，就会发出挂舱信号给 PLC，PLC 会令驱动断电或增加反力矩。反力矩是否施加取决于具体控制系统情况。同时，制动器闭合，使电机、卷筒快速停止。在压力继电器发信号的同时，液压系统溢流阀在钢丝绳力作用下溢流，液压油缸在钢丝绳力作用下快速回缩，抵消在此过程中吊具的起升位移，阻止钢丝绳力进一步增大，达到保护岸桥的目的。</p>
+<h3 id="_4">挂舱保护液压缸的特性分析<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><img alt="图 2 挂舱保护液压缸的布置" src="https://cquf-piclib.oss-cn-hangzhou.aliyuncs.com/图 2 挂舱保护液压缸的布置.png" /></p>
+<p>​       通过挂舱保护的工作原理和液压缸的布置方式可知，所设计的挂舱保护液压缸为双作用单杆活塞缸，采用中间耳轴联接，杆端采用带关节轴承的耳环连接；能够在海洋环境下可靠工作；具有回程快、内泄漏量极少、无外泄漏以及使用寿命长等特点。</p>
+<h3 id="_5">液压缸的设计要求<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>​       根据设计任务书，主要技术指标为：
+1. 挂舱保护液压缸额定压力：<span class="arithmatex">\(p_1 = 31.5\)</span>MPa； 
+2. 挂舱保护液压缸最大推力：<span class="arithmatex">\(F_1 = 275\)</span>kN, 挂舱时的回程力 <span class="arithmatex">\(F_2 = 600\)</span>kN
+3. 工作行程 <span class="arithmatex">\(l = 1000\)</span>mm；
+4. 挂舱时液压缸回程速度：<span class="arithmatex">\(v_2 = 0.8\)</span>m/s 。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">p_1</span> <span class="o">=</span>   <span class="mi">20000000</span><span class="c1">#@param {type: &quot;number&quot;} 计算时按照20MPa计算</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">F_1</span> <span class="o">=</span>   <span class="mi">275000</span><span class="c1">#@param {type: &quot;number&quot;}</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">F_2</span> <span class="o">=</span>   <span class="mi">600000</span><span class="c1">#@param {type: &quot;number&quot;}</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">l</span> <span class="o">=</span>   <span class="mi">1</span><span class="c1">#@param {type: &quot;number&quot;}</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="n">v_2</span> <span class="o">=</span>   <span class="mf">0.8</span><span class="c1">#@param {type: &quot;number&quot;}</span>
+</code></pre></div>
+<h3 id="_6">液压缸材料的选取<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>​       根据《机械设计手册》和设计要求并参考同类型设计案例，缸体材料选择 20 号无缝钢管，缸盖、活塞选择 45 号钢，活塞杆选择 304 不锈钢。</p>
+<h2 id="_7">液压缸主要技术参数的计算及校核<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>​       液压缸的性能参数主要有缸筒内径 <span class="arithmatex">\(D\)</span>、活塞杆外径 <span class="arithmatex">\(𝑑\)</span>、活塞行程 <span class="arithmatex">\(S\)</span>、缸筒长度 <span class="arithmatex">\(𝐿_1\)</span>和最小导向长度 <span class="arithmatex">\(H\)</span>。</p>
+<h3 id="d">缸筒的内径 <span class="arithmatex">\(D\)</span><a class="headerlink" href="#d" title="Permanent link">&para;</a></h3>
+<p><img alt="图 3 双作用液压液压缸筒图" src="https://cquf-piclib.oss-cn-hangzhou.aliyuncs.com/图 3 双作用液压液压缸筒图.png" /></p>
+<p>​       缸筒内径即活塞外径，是液压缸的主要参数，根据液压缸推力要求计算缸筒内径。为得到所要求的推力 <span class="arithmatex">\(F\)</span> ，应使</p>
+<div class="arithmatex">\[
+pA\eta_{\text{cm}} = F
+\]</div>
+<p>式中
+- p——作用在活塞上的有效压力（Pa），p 应比液压缸额定压力小，取 p = 20MPa；
+- A——液压缸的有效工作面积 （<span class="arithmatex">\(\text{m}^2\)</span>），<span class="arithmatex">\(A = \pi D^2/4\)</span>；
+- <span class="arithmatex">\(\eta_{\text{cm}}\)</span>——液压缸的机械效率，取 <span class="arithmatex">\(\eta_{\text{cm}} = 0.95\)</span>； 
+- F——液压缸推力（N）, F = 300kN。</p>
+<p>​       计算得缸筒内径 D为</p>
+<div class="arithmatex">\[
+D = \sqrt{\frac{4F_{1}}{\text{π}p\eta_{\text{cm}}}} = 141.8\text{mm}
+\]</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">eta_cm</span> <span class="o">=</span> <span class="mf">0.95</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="n">D</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="mi">4</span><span class="o">*</span><span class="n">F_1</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">p_1</span><span class="o">*</span><span class="n">eta_cm</span><span class="p">))</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.13575149021226632
+</code></pre></div>
+<p>​       根据 GB/T 2348-1993， 将缸筒内径圆整为标准值为</p>
+<div class="arithmatex">\[
+D = 160\text{mm}
+\]</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">D</span> <span class="o">=</span> <span class="mf">0.160</span>
+</code></pre></div>
+<h3 id="d_1">活塞杆直径 <span class="arithmatex">\(d\)</span><a class="headerlink" href="#d_1" title="Permanent link">&para;</a></h3>
+<p>​       设计要求不涉及到速度比，因此按照活塞杆受力状况来确定。由于活塞杆长度没有确定，为了安全起见，同时校核强度条件和弯曲稳定性条件。</p>
+<p>​       (1) 活塞杆直径的确定</p>
+<p>​       液压缸工作时受压力，工作压力大于7MPa，活塞杆直径 d = 0.7D = 112mm，圆整为标准值得</p>
+<div class="arithmatex">\[
+d = 110\text{mm}
+\]</div>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">d</span> <span class="o">=</span> <span class="mf">0.110</span>
+</code></pre></div>
+<p>​       (2) 按强度条件校核</p>
+<p>​       按照强度条件校核活塞杆的直径 d，即</p>
+<div class="arithmatex">\[
+d \geq \sqrt{\frac{4Fn_{\text{s}}}{\pi\sigma_{\text{s}}}} = 86\text{mm}
+\]</div>
+<p>式中
+- F——活塞杆最大推力，F = 600kN；
+- <span class="arithmatex">\(\sigma_\text{s}\)</span>——缸筒材料的屈服极限，取<span class="arithmatex">\(\sigma_\text{s} = 355\)</span>MPa；
+- <span class="arithmatex">\(n_\text{s}\)</span>——缸简屈服安全系数，取 <span class="arithmatex">\(n_\text{s} = 2\)</span>。</p>
+<p>所选活塞杆直径符合强度要求。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">sigma_s_45</span> <span class="o">=</span> <span class="mi">205</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">F_2</span><span class="o">*</span><span class="n">n_s</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">sigma_s_45</span><span class="p">)))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.08633139365350852
+1743414.4123473573
+</code></pre></div>
+<p>​       (3) 按弯曲稳定性校核</p>
+<p>​       根据经验，取活塞杆全部伸出后，活塞杆外端到液压缸支撑点之间的距离<span class="arithmatex">\((\)</span>即活塞杆计算长度<span class="arithmatex">\()\)</span> <em>l</em> = 2200mm。</p>
+<p>​       按材料力学理论，当一受压直杆的轴向载荷<em>F</em>超过临界受压载荷<span class="arithmatex">\(F_{K}\)</span>时，即可能失去原有直线状态的平衡，称为失稳。对液压缸，其稳定条件为</p>
+<div class="arithmatex">\[
+F \leq \frac{F_{K}}{n_{K}}
+\]</div>
+<p>式中
+- <em>F</em>——活塞杆最大推力，<em>F</em> = 600kN；
+- <span class="arithmatex">\(F_{K}\)</span>——液压缸的临界受压载荷；
+- <span class="arithmatex">\(n_{K}\)</span>——稳定安全系数，取<span class="arithmatex">\(n_{K} =\)</span> 2。</p>
+<p>​       挂舱保护液压缸不受偏心载荷的情况，细长比<span class="arithmatex">\(\ l/K &gt; m\sqrt{n}\)</span>，用戈登·兰金公式计算临界载荷<span class="arithmatex">\(F_{K}\)</span></p>
+<div class="arithmatex">\[
+F_{K} = \frac{fA}{1 + \frac{a}{n}{(\frac{l}{K})}^{2}} = 1743\text{kN}
+\]</div>
+<p>式中 
+- <em>K</em>——活塞杆横截面回转半径，<span class="arithmatex">\(K = d/\)</span>4
+- <span class="arithmatex">\(m\)</span>——柔性系数，活塞杆为304不锈钢，取<span class="arithmatex">\(\ m =\)</span> 90；
+- <span class="arithmatex">\(n\)</span>——端点安装系数，安装方式为两端铰接，取<span class="arithmatex">\(\ n =\)</span> 1；
+- <span class="arithmatex">\(f\)</span>——材料强度实验值，活塞杆为304不锈钢，取<span class="arithmatex">\(\ f\)</span> = 340MPa；
+- <span class="arithmatex">\(A\)</span>——活塞杆横截面面积；
+- <span class="arithmatex">\(a\)</span>——实验常量，取 <span class="arithmatex">\(a =\)</span> 1/7500。</p>
+<p>​       根据稳定条件，活塞杆直径符合稳定性要求。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="nb">print</span><span class="p">(</span><span class="mi">340</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">4</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="mi">80</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mi">7500</span><span class="p">))</span>
+</code></pre></div>
+<h3 id="h">最小导向长度 <span class="arithmatex">\(H\)</span><a class="headerlink" href="#h" title="Permanent link">&para;</a></h3>
+<p><img alt="图 4 液压缸最小导向长度" src="https://cquf-piclib.oss-cn-hangzhou.aliyuncs.com/图 4 液压缸最小导向长度.png" /></p>
+<p>​       当活塞杆全部外伸时，从活塞支承面中点到导向套滑动面中点的距离称为最小导向长度。导向长度过小，将使液压缸的初始挠度（由间隙引起的挠度）增大，影响液压缸的稳定性。由《机械设计手册》，最小导向长度 <span class="arithmatex">\(H\)</span> 应满足</p>
+<div class="arithmatex">\[
+H \geq \frac{L}{20} + \frac{D}{2} = 130\text{mm}
+\]</div>
+<p>式中 
+- <em>L</em>——液压缸最大行程，<em>L</em> = 1000mm；
+- <em>D</em>——缸筒内径, <em>D</em> = 160mm。</p>
+<p>取 <span class="arithmatex">\(H = 130\text{mm}\)</span> 。</p>
+<p>​       活塞宽度 <span class="arithmatex">\(B = (0.6 \sim 1.0)D\)</span>，取 <span class="arithmatex">\(B = 100\)</span>mm。由于 <span class="arithmatex">\(D &gt; 80\)</span>mm，导向套滑动面长度 <span class="arithmatex">\(A = (0.6 \sim 1.0)d\)</span>，取 <span class="arithmatex">\(d = 80\)</span>mm。轴套长度 <span class="arithmatex">\(C = H - \frac{1}{2}(A + B) = 40\)</span>mm。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="n">H</span> <span class="o">=</span> <span class="n">l</span><span class="o">/</span><span class="mi">20</span> <span class="o">+</span> <span class="n">D</span><span class="o">/</span><span class="mi">2</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">H</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.13
+</code></pre></div>
+<h3 id="l_1">缸筒长度 <span class="arithmatex">\({L}_{{1}}\)</span><a class="headerlink" href="#l_1" title="Permanent link">&para;</a></h3>
+<p>​       缸筒长度由最大行程长度加上各种结构需求来确定，即</p>
+<div class="arithmatex">\[
+L_{1} = S + B + H + M + C = 1135\text{mm}
+\]</div>
+<p>式中 
+- <span class="arithmatex">\(S\)</span>——活塞杆的最大工作行程；
+- <span class="arithmatex">\(B\)</span>——活塞宽度；
+- <span class="arithmatex">\(H\)</span>——活塞杆导向长度；
+- <span class="arithmatex">\(M\)</span>——活塞杆密封长度；
+- <span class="arithmatex">\(C\)</span>——其他长度。</p>
+<h2 id="_8">液压缸主要结构技术参数的计算及校核<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<h3 id="delta">缸筒壁厚 <span class="arithmatex">\(\delta\)</span><a class="headerlink" href="#delta" title="Permanent link">&para;</a></h3>
+<p>​       根据力士乐、洪格尔等公司液压缸壁厚数据，选择壁厚 <span class="arithmatex">\(\delta = 25\text{mm}\)</span>。</p>
+<p>​       <span class="arithmatex">\(\delta/D = 0.16 \leq 0.25\)</span>, 按第一强度理论，按薄壁圆筒的中径公式校核</p>
+<div class="arithmatex">\[
+\delta \leq \frac{p_{\max}D}{2\lbrack\sigma\rbrack} = 19.5\text{mm}
+\]</div>
+<p>式中 
+- <span class="arithmatex">\(p_{\max}\)</span>——液压缸瞬间能承受的最高压力，<span class="arithmatex">\(p_{\max} = 1.5p_{n} = 30\text{MPa}\)</span>；
+- <span class="arithmatex">\(\delta\)</span>——缸筒壁厚；
+- <span class="arithmatex">\(D\)</span>——缸筒内径；
+- <span class="arithmatex">\([\sigma]\)</span>——缸筒材料的许用应力，缸筒材料为20钢，<span class="arithmatex">\([\sigma] = \sigma_s/n_s = 122.5MPa\)</span>，<span class="arithmatex">\(\sigma_s\)</span> 为缸筒材料的屈服极限，取<span class="arithmatex">\(\sigma_s = 245MPa\)</span>，<span class="arithmatex">\(n_s\)</span> 为缸简屈服安全系数，取 <span class="arithmatex">\(n_s = 2\)</span>。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="n">delta</span> <span class="o">=</span> <span class="mf">0.025</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">delta</span><span class="o">/</span><span class="n">D</span><span class="p">)</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a><span class="n">p_max</span> <span class="o">=</span> <span class="mf">1.5</span><span class="o">*</span><span class="n">p_1</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">p_max</span><span class="p">)</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="n">sigma_s_20</span> <span class="o">=</span> <span class="mi">245</span><span class="o">*</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="n">n_s</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="n">sigma_20</span> <span class="o">=</span> <span class="n">sigma_s_20</span><span class="o">/</span><span class="n">n_s</span>
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">sigma_20</span><span class="p">)</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">p_max</span><span class="o">*</span><span class="n">D</span><span class="o">/</span><span class="mi">2</span><span class="o">/</span><span class="n">sigma_20</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.15625
+30000000.0
+122500000.0
+0.019591836734693877
+</code></pre></div>
+<p>​       强度符合要求。</p>
+<h3 id="_9">油口尺寸<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p><img alt="图 5 油口直径" src="https://cquf-piclib.oss-cn-hangzhou.aliyuncs.com/图 5 油口直径.png" /></p>
+<p>​       油管的有效通油直径，应保证油液流速在4.5m/s以下，这样可以减少压力损失，提高效率，减轻振动和噪声。</p>
+<h4 id="_10">回程流量的计算<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>​       液压缸无杆腔的回程流量 <span class="arithmatex">\(q_1\)</span> 为
+$$
+q_{1} = \frac{\pi D^{2}v_{2}}{4\eta_{\text{cV}}} = 0.016\text{m}^{3}/\text{s}
+$$</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="n">eta_cV</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="n">q_1</span> <span class="o">=</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">D</span><span class="o">**</span><span class="mi">2</span><span class="o">*</span><span class="n">v_2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">eta_cV</span><span class="p">)</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">q_1</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.016084954386379743
+</code></pre></div>
+<p>​       有杆腔回程流量 <span class="arithmatex">\(q_2\)</span> 为
+$$
+q_{2} = \frac{\pi(D^{2} - d^{2})v_{2}}{4\eta_{\text{cV}}} = 0.008\text{m}^{3}/\text{s}
+$$
+式中：
+- D——活塞直径，D = 160mm；
+- d——活塞杆直径，d = 110mm
+- <span class="arithmatex">\(v_2\)</span>——回程速度, <span class="arithmatex">\(v_2 = 0.8\)</span>m/s；
+- <span class="arithmatex">\(\eta_{\text{cV}}\)</span>——液压缸容积效率，泄漏量小，取 <span class="arithmatex">\(\eta_{\text{cV}} = 1\)</span>。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="n">q_2</span> <span class="o">=</span> <span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="n">D</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">v_2</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">eta_cV</span><span class="p">)</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">q_2</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.008482300164692444
+</code></pre></div>
+<h4 id="_11">油口直径的计算<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p>​       油口的通流面积，应保证油液流速 <span class="arithmatex">\(v'\)</span> 在4.5m/s以下，</p>
+<p>​       对无杆腔，油口直径为
+$$
+d' \geq \sqrt{\frac{v_2}{v'}}D = 67\text{mm}
+$$
+​       圆整为 
+$$
+d' = 70\text{mm}
+$$
+​       对有杆腔，油口直径为
+$$
+d'' \geq \sqrt{\frac{v_2}{v'}(D^2 - d^2)} = 49\text{mm}
+$$
+式中:
+- <span class="arithmatex">\(d'\)</span>——无杆腔油口直径；
+- <span class="arithmatex">\(d''\)</span>——有杆腔油口直径；
+- <span class="arithmatex">\(v'\)</span>——油液速度，<span class="arithmatex">\(v' = 4.5\)</span>m/s；
+- <span class="arithmatex">\(v_2\)</span>——回程速度, <span class="arithmatex">\(v_2 = 0.8\)</span>m/s；
+- D——活塞直径，D = 160mm；
+- d——活塞杆直径，d = 110mm。</p>
+<p>​       圆整为 
+$$
+d'' = 50\text{mm}
+$$</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="n">v_pie</span> <span class="o">=</span> <span class="mf">4.5</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="n">d_pie</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_2</span><span class="o">/</span><span class="n">v_pie</span><span class="p">)</span><span class="o">*</span><span class="n">D</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">d_pie</span><span class="p">)</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="n">d_piepie</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">v_2</span><span class="o">/</span><span class="n">v_pie</span><span class="o">*</span><span class="p">(</span><span class="n">D</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">d</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="nb">print</span><span class="p">(</span><span class="n">d_piepie</span><span class="p">)</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="n">d_pie</span> <span class="o">=</span> <span class="mf">0.070</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="n">d_piepie</span> <span class="o">=</span> <span class="mf">0.050</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.06746192341692543
+0.048989794855663564
+</code></pre></div>
+<p><img alt="图 6 油口安装尺寸" src="https://cquf-piclib.oss-cn-hangzhou.aliyuncs.com/图 6 油口安装尺寸.png" /></p>
+<h2 id="_12">液压缸的结构设计<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p><img alt="图 7 液压缸结构" src="https://cquf-piclib.oss-cn-hangzhou.aliyuncs.com/图 7 液压缸结构.png" /></p>
+<p>​       如图7所示，本设计采用中间耳轴的安装方式，耳轴与缸筒焊接。活塞杆端部用螺纹与连接耳轴，耳轴通过关节轴承连接其他机械部件。活塞杆与活塞处采用螺纹连接。缸筒与缸盖、缸筒与缸底采用整体螺钉连接方式。</p>
+<h2 id="_13">液压缸主要零部件的计算与选择<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h3 id="_14">液压缸的连接计算<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<h4 id="_15">活塞杆连接螺纹的计算<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h4>
+<p>​       (1) 螺纹外径的计算</p>
+<p>​       假设可忽略螺顶与螺底的尺寸差别，则可用下式概略计算
+$$
+d_0 = 1.38\sqrt{\frac P{[\sigma]}} = 54\text{mm}
+$$
+式中：
+- P——活塞拉力，P = 300kN；
+- <span class="arithmatex">\([\sigma]\)</span>——缸筒材料的许用应力</p>
+<p>​       根据液压缸活塞杆螺纹尺寸系列，并为了安全适当扩大螺纹直径，选用 <span class="arithmatex">\(\text{M}90 \times 3\)</span> 螺纹。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="n">d_0_huosaigan</span> <span class="o">=</span> <span class="mf">1.38</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">F_1</span><span class="o">/</span><span class="p">(</span><span class="n">sigma_s_45</span><span class="o">/</span><span class="n">n_s</span><span class="p">))</span>
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">d_0_huosaigan</span><span class="p">)</span>
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="n">d_0_huosaigan</span> <span class="o">=</span> <span class="mf">0.090</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.07147982829902809
+</code></pre></div>
+<p>​       (2) 螺纹强度计算</p>
+<p>​       活塞杆与活塞连接螺纹的强度按第四强度理论校核
+$$
+\sigma_L = \frac{1.25P}{\frac\pi4d_1^2} = 58\text{MPa}\
+\tau = \frac{20Pd_0K}{\pi d_1^3} = 17\text{MPa}\
+\sigma_A = \sqrt{\sigma_L^2+3\tau^2} = 65\text{MPa} &lt; [\sigma] = 177.5\text{MPa}
+$$
+式中：
+- <span class="arithmatex">\(\sigma_L\)</span>——拉应力；
+- <span class="arithmatex">\(\tau\)</span>——剪切应力；
+- <span class="arithmatex">\(\sigma_A\)</span>——合成应力；
+- <span class="arithmatex">\(d_0\)</span>——螺纹外径，取<span class="arithmatex">\(d_0 = 56mm\)</span>；
+- <span class="arithmatex">\(d_1\)</span>——螺纹底径，查标准得<span class="arithmatex">\(d_1 = 53.9mm\)</span>；
+- <span class="arithmatex">\(K\)</span>——螺纹连接摩擦因数，取<span class="arithmatex">\(K = 0.07\)</span>。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="n">d_1_huosaigan</span> <span class="o">=</span> <span class="mf">0.0867</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="n">K_huosaigan</span> <span class="o">=</span> <span class="mf">0.07</span>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="n">sigma_l_huosaigan</span> <span class="o">=</span> <span class="mf">1.25</span><span class="o">*</span><span class="n">F_1</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="n">d_1_huosaigan</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="n">tau_huosaigan</span> <span class="o">=</span> <span class="mi">20</span><span class="o">*</span><span class="n">F_1</span><span class="o">*</span><span class="n">d_0_huosaigan</span><span class="o">*</span><span class="n">K_huosaigan</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="n">d_1_huosaigan</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="n">sigma_a_huosaigan</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma_l_huosaigan</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">tau_huosaigan</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="nb">print</span><span class="p">(</span><span class="n">sigma_l_huosaigan</span><span class="p">,</span> <span class="n">tau_huosaigan</span><span class="p">,</span> <span class="n">sigma_a_huosaigan</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>58225688.217163235 16923729.447203156 65187948.45344264
+</code></pre></div>
+<p>​       螺纹强度符合要求。</p>
+<h4 id="_16">中间耳轴焊接强度计算<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
+<p><img alt="图 8 耳轴焊缝" src="https://cquf-piclib.oss-cn-hangzhou.aliyuncs.com/图 8 耳轴焊缝.png" /></p>
+<p>​       采用角焊接，强度计算公式为</p>
+<div class="arithmatex">\[
+\sigma = \frac{0.707P}{\pi D_{1}h\varphi} = 32.7\text{MPa} &lt; \lbrack\sigma\rbrack
+\]</div>
+<p>式中 
+- <em>P</em>——液压杆推力
+- <span class="arithmatex">\(D_1\)</span>——缸筒外径，<span class="arithmatex">\(D_1 = D + 2\delta = 210\)</span>mm；
+- <span class="arithmatex">\(h\)</span>——焊缝有效宽度，取 <span class="arithmatex">\(h = 15\text{mm}\)</span>，<span class="arithmatex">\(D_{2} = D_{1} - 2h = 180\text{mm}\)</span>
+- <span class="arithmatex">\(\varphi\)</span>——焊缝强度系数，取<span class="arithmatex">\(\varphi = 0.8\)</span></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="n">varphi_gangdihan</span> <span class="o">=</span> <span class="mf">0.8</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="n">D_1_gangdihan</span> <span class="o">=</span> <span class="n">D</span> <span class="o">+</span> <span class="n">delta</span><span class="o">*</span><span class="mi">2</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="n">D_2_gangdihan</span> <span class="o">=</span> <span class="n">D_1_gangdihan</span> <span class="o">-</span> <span class="mf">0.015</span><span class="o">*</span><span class="mi">2</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="nb">print</span><span class="p">(</span><span class="mi">4</span><span class="o">*</span><span class="n">F_1</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="p">(</span><span class="n">D_1_gangdihan</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="n">D_2_gangdihan</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">varphi_gangdihan</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>37408213.11988992
+</code></pre></div>
+<h4 id="_17">法兰连接螺栓强度计算<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
+<p><img alt="图9 法兰连接" src="https://cquf-piclib.oss-cn-hangzhou.aliyuncs.com/图 9 法兰连接.png" /></p>
+<p>​       初选法兰选用 <span class="arithmatex">\(\text{M}30 \times 2\)</span> 螺栓，螺孔数为12。</p>
+<p>​       螺纹的拉应力</p>
+<div class="arithmatex">\[
+\sigma = \frac{{KP}}{\frac{\pi}{4}d_{1}^{2}Z} = 58\text{MPa}
+\]</div>
+<p>​       螺纹的剪应力</p>
+<div class="arithmatex">\[
+\tau = \frac{K_{1}{KP}d_{1}}{0.2d_{1}^{3}Z} = 30\text{MPa}
+\]</div>
+<p>​       合成应力</p>
+<div class="arithmatex">\[
+\sigma_{A} = \sqrt{\sigma^{2} + 3\tau^{2}} = 77\text{MPa} &lt; \lbrack\sigma_{s}\rbrack
+\]</div>
+<p>式中 
+- <span class="arithmatex">\(K\)</span>——拧紧螺纹系数，挂舱保护液压缸工作时收到静载荷，<span class="arithmatex">\(K = 1.5\)</span>；
+- <span class="arithmatex">\(K_{1}\)</span>——螺纹内摩擦因数，取<span class="arithmatex">\(K_{1} = 1.5\)</span>；
+- <span class="arithmatex">\(P\)</span>——液压缸最大推力；
+- <span class="arithmatex">\(d_{1}\)</span>——螺纹底径，普通螺纹<span class="arithmatex">\(d_{1} = d_{0} - 1.224S\)</span>；
+- <span class="arithmatex">\(Z\)</span>——螺栓数目。</p>
+<p>​       所选螺栓符合强度要求。</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="n">K_falan</span> <span class="o">=</span> <span class="mf">1.5</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="n">K_1_falan</span> <span class="o">=</span> <span class="mf">0.12</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="n">d_0_falan</span> <span class="o">=</span> <span class="mf">0.030</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="n">S_falan</span> <span class="o">=</span> <span class="mf">0.002</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="n">Z_falan</span> <span class="o">=</span> <span class="mi">12</span>
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="n">d_1_falan</span> <span class="o">=</span> <span class="n">d_0_falan</span> <span class="o">-</span> <span class="mf">1.224</span><span class="o">*</span><span class="n">S_falan</span>
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="n">sigma_falan</span> <span class="o">=</span> <span class="n">K_falan</span><span class="o">*</span><span class="n">F_1</span><span class="o">/</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="p">(</span><span class="n">d_1_falan</span><span class="o">**</span><span class="mi">2</span><span class="o">-</span><span class="n">D</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="n">tau_falan</span> <span class="o">=</span> <span class="n">K_1_falan</span><span class="o">*</span><span class="n">K_falan</span><span class="o">*</span><span class="n">F_1</span><span class="o">*</span><span class="n">d_0_falan</span><span class="o">/</span><span class="p">(</span><span class="mf">0.2</span><span class="o">*</span><span class="p">(</span><span class="n">d_1_falan</span><span class="o">**</span><span class="mi">3</span><span class="o">-</span><span class="n">D</span><span class="o">**</span><span class="mi">3</span><span class="p">))</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="n">sigma_H_falan</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma_falan</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="o">*</span><span class="n">tau_falan</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="nb">print</span><span class="p">(</span><span class="n">sigma_falan</span><span class="p">,</span> <span class="n">tau_falan</span><span class="p">,</span> <span class="n">sigma_H_falan</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>57656273.06676087 29583927.030689728 77135413.6543029
+</code></pre></div>
+<h4 id="_18">缸筒螺纹连接强度计算<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h4>
+<p><img alt="图 10 缸筒螺纹连接计算简图" src="https://cquf-piclib.oss-cn-hangzhou.aliyuncs.com/图 10 缸筒螺纹连接计算简图.png" /></p>
+<p>​       螺纹的拉应力</p>
+<div class="arithmatex">\[
+\sigma = \frac{\text{KP}}{\frac{\pi}{4}(d_{1}^{2} - D^{2})} = 58\text{MPa}
+\]</div>
+<p>​       螺纹的剪应力</p>
+<div class="arithmatex">\[
+\tau = \frac{K_{1}\text{KP}d_{1}}{0.2(d_{1}^{3} - D^{3})} = 30\text{MPa}
+\]</div>
+<p>​       合成应力</p>
+<div class="arithmatex">\[
+\sigma_{A} = \sqrt{\sigma^{2} + 3\tau^{2}} = 77\text{MPa} &lt; \lbrack\sigma_{s}\rbrack
+\]</div>
+<p>式中 
+- <span class="arithmatex">\(K\)</span>——拧紧螺纹系数，挂舱保护液压缸工作时收到静载荷，<span class="arithmatex">\(K = 1.5\)</span>；
+- <span class="arithmatex">\(K_{1}\)</span>——螺纹内摩擦因数，取<span class="arithmatex">\(K_{1} = 1.5\)</span>；
+- <span class="arithmatex">\(P\)</span>——液压缸最大推力；
+- <span class="arithmatex">\(d_{1}\)</span>——螺纹底径，普通螺纹<span class="arithmatex">\(d_{1} = d_{0} - 1.224S\)</span>；
+- <span class="arithmatex">\(Z\)</span>——螺栓数目；
+- <span class="arithmatex">\(D\)</span>——缸筒内径。</p>
+<p>​       缸筒螺纹连接符合强度要求。</p>
+<h4 id="_19">耳轴强度计算<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h4>
+<p>​       剪切应力
+$$
+\tau = \frac{pD^2}{2d_0^2} = 40\text{MPa}\leq[\tau]
+$$
+- p——液压力，p = 20MPa；
+- D——液压缸直径，D = 160mm；
+- <span class="arithmatex">\(d_0\)</span>——铰轴直径，由《机械设计手册》，查表得铰轴直径 <span class="arithmatex">\(d_0 = 80\)</span>mm；</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="n">d_0_erzhou</span> <span class="o">=</span> <span class="mf">0.080</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="n">tau_erzhou</span> <span class="o">=</span> <span class="n">p_1</span><span class="o">*</span><span class="n">D</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">d_0_erzhou</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="nb">print</span><span class="p">(</span><span class="n">tau_erzhou</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>40000000.0
+</code></pre></div>
+<h3 id="_20">活塞杆的导向、密封和防尘<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p>​       活塞杆导向套装在液压缸的有杆侧端盖内，用以对活塞杆进行导向，内装有密封装置以保证缸筒有杆腔的密封。外侧装有防尘圈，以防止活塞杆在后退时把杂质、灰尘和水分带到密封装置处，损坏密封装置。导向套采用耐磨材料，其内圈装设导向环，用作活塞杆的导向。同时，活塞与活塞杆之间也需要加装密封装置，用于保证液压缸工作的可靠性。</p>
+<p>​       活塞、活塞杆处如图11所示：</p>
+<p><img alt="图11 活塞、活塞杆处的导向和密封" src="https://cquf-piclib.oss-cn-hangzhou.aliyuncs.com/图 11 活塞、活塞杆处的导向和密封.png" /></p>
+<p>​       1——活塞 2——活塞支撑 3——导向带 4——格来圈 5、7——"O"型圈 6——孔用圈</p>
+<p>​       缸盖处如图12所示：</p>
+<p><img alt="图 12 缸盖处的导向、密封和防尘" src="https://cquf-piclib.oss-cn-hangzhou.aliyuncs.com/图 12 缸盖处的导向、密封和防尘.png" /></p>
+<p>​       1—防尘圈 2—导向带 3—轴用圈 4—斯特封</p>
+<h4 id="_21">活塞杆导向的选择<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h4>
+<p>​       导向套对活塞起导向和支撑作用，挂舱保护液压缸要求有较快的回程速度，因此需要设置导向套。由于活塞杆要在导向套中滑动，因此采用H8/h7配合。根据设计案例，选择德国进口SFK导向带。</p>
+<h4 id="_22">活塞杆密封的选择<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h4>
+<p>​       活塞装置主要用来防止液压油的泄漏，挂舱保护液压缸要求内泄漏量极少并且无外泄漏。密封装置除了具有良好的密封性能外，还需要随压力的增加能自动提高密封性，摩擦阻力小，耐油，抗腐蚀，耐磨，寿命长，制造简单，拆装方便。油缸主要采用密封圈密封，此处选用格来圈、"O"型圈和特斯封进行密封。</p>
+<h4 id="_23">活塞杆防尘装置的选择<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h4>
+<p>​       挂舱保护液压缸放置在港口环境，需要在海洋环境下可靠工作，因此需要设置防尘防水装置。耳环与缸盖间的活塞杆使用防尘罩，并且在缸盖处设置防尘圈。</p>
+<h3 id="_24">耳环的选择<a class="headerlink" href="#_24" title="Permanent link">&para;</a></h3>
+<p><img alt="图 13 耳环" src="https://cquf-piclib.oss-cn-hangzhou.aliyuncs.com/图 13 耳环.png" /></p>
+<p>​       挂舱保护液压缸耳环用于连接活塞杆与其他机械结构。</p>
+<p>​       根据电商平台提供的技术资料，选择GIHR---110DO型号的耳环，结构如图13所示。</p>
+<h3 id="_25">缓冲装置的选择<a class="headerlink" href="#_25" title="Permanent link">&para;</a></h3>
+<p><img alt="图14 缓冲装置" src="https://cquf-piclib.oss-cn-hangzhou.aliyuncs.com/图 14 缓冲装置.png" /></p>
+<p>​       挂舱保护液压缸质量较大，回程速度较快时，由于惯性力较大，因此具有很大的动量。 在这种情况下，当活塞运动到缸筒的终端时，会与端盖发生机械碰撞，产生很大的冲击和噪声，严重影响控制精度，甚至会引起事故。所以，挂舱保护液压缸应配有缓冲装置。缓冲装置的工作原理是：利用活塞或缸简在其运动至行程终端时，在活塞和缸盖之间封住一部分油液，强迫它从小孔或缝隙中挤出，以产生很大的阻力，使工作部件受到制动而逐渐减慢运动速度，达到避免活塞和缸盖相互撞击的目的。</p>
+<p>​       本设计选用固定间隙缓冲装置。如图14所示，当活塞移近缸盖时，活塞上的凸台进入缸盖的凹腔，迫使封闭在回油腔中的油液从凸台和凹腔之间的环状间隙中挤压出去，使回油腔中压力升高而形成缓冲压力，从而使活塞减慢移动速度。</p>
+<h2 id="_26">设计图纸<a class="headerlink" href="#_26" title="Permanent link">&para;</a></h2>
+<p><img alt="设计图纸" src="https://cquf-piclib.oss-cn-hangzhou.aliyuncs.com/图 0 工程图纸.png" /></p>
+<h2 id="_27">参考文献<a class="headerlink" href="#_27" title="Permanent link">&para;</a></h2>
+<p>[1]李壮云. 液压元件与系统[M]. 第3版. 北京: 机械工业出版社, 2011.6</p>
+<p>[2]秦大同, 谢里阳. 现代机械设计手册[M]. 第4卷. 化学工业出版社 ,2011</p>
+<p>[3]张利平. 液压气动设计手册[M]. 北京: 机械工业出版社, 1997.6</p>
+<p>[4]王宝海, 富茂华. 岸桥挂舱保护系统[J]. 港口装卸, 2018(2): 28-30.</p>
+<p>[5]张燕敏, 王健. 岸边集装箱起重机挂舱保护装置的设计[J]. 起重运输机械, 2012(7).</p>
+<p>[6]丁立基. 岸边桥式起重机防挂舱系统[J]. 起重运输机械, 2017(7):31-32.</p>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../CourseDesignOfMechanismDesign/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 课程设计：双级圆柱斜齿轮减速器" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  上一页
+                </span>
+                课程设计：双级圆柱斜齿轮减速器
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../CourseDesignOnMechanicalAndElectronicTransmissionAndControl/" class="md-footer__link md-footer__link--next" aria-label="下一页: 课程设计：MQ4035门座起重机变幅机构变频调速电气控制线路设计" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  下一页
+                </span>
+                课程设计：MQ4035门座起重机变幅机构变频调速电气控制线路设计
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://github.com/Fu-Qingchen" target="_blank" rel="noopener">Fu_Qingchen</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+    
+  </body>
+</html>

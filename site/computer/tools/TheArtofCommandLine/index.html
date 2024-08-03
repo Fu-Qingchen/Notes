@@ -1,0 +1,1969 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../GDB/">
+      
+      
+        <link rel="next" href="../UsefulWebsite/">
+      
+      <link rel="icon" href="../../../assets/book.svg">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+    
+    
+      
+        <title>命令行的艺术 - Q_C Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.c4a75a56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/jetbrainsmono.css">
+    
+      <link rel="stylesheet" href="../../../css/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../css/tasklist.css">
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+      <link rel="stylesheet" href="../../../css/card.css">
+    
+      <link rel="stylesheet" href="../../../css/flink.css">
+    
+      <link rel="stylesheet" href="../../../css/changelog_extra.css">
+    
+      <link rel="stylesheet" href="../../../css/heti.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Q_C Notebook" class="md-header__button md-logo" aria-label="Q_C Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Q_C Notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              命令行的艺术
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../archive/CourseDesignOfMechanicalPrinciple/" class="md-tabs__link">
+        Archive
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        Computer
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../economy/" class="md-tabs__link">
+        Economy
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../health/" class="md-tabs__link">
+        Health
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../others/2022%E5%B9%B4/2022-2023%E5%B9%B4%E5%BA%A6%E7%A7%9F%E6%88%BF%E6%96%B9%E6%A1%88/" class="md-tabs__link">
+        Others
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../report/2021-2022%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" class="md-tabs__link">
+        Report
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Q_C Notebook" class="md-nav__button md-logo" aria-label="Q_C Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    Q_C Notebook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Archive
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Archive
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../archive/CourseDesignOfMechanicalPrinciple/" class="md-nav__link">
+        课程设计：牛头刨床机构的分析与综合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../archive/CourseDesignOfMechanismDesign/" class="md-nav__link">
+        课程设计：双级圆柱斜齿轮减速器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../archive/CourseDesignOnHydraulicElementsAndTransitionSystems/" class="md-nav__link">
+        课程设计：65t-55m岸桥挂舱保护液压缸设计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../archive/CourseDesignOnMechanicalAndElectronicTransmissionAndControl/" class="md-nav__link">
+        课程设计：MQ4035门座起重机变幅机构变频调速电气控制线路设计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../archive/GraduationDesign_WHUT_Archive/" class="md-nav__link">
+        本科毕业设计：一种直角坐标式船舶系泊辅助机械臂设计与分析
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Computer</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Computer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Algorithm
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Algorithm
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/Introduction2Algorithms/" class="md-nav__link">
+        数据结构与算法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Language
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Language
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language/CPPBase/" class="md-nav__link">
+        C++基础回顾
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language/CPPEffective/" class="md-nav__link">
+        Effective C++ 笔记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language/LearnCPP/" class="md-nav__link">
+        C++ Primer 阅读笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          Network
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Network
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/ComputerNetworking/" class="md-nav__link">
+        计算机网络
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/ErrorOfNetwork/" class="md-nav__link">
+        常见网络通信错误码
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../network/PersonalNAS/" class="md-nav__link">
+        个人 NAS 解决方案
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          Others
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Others
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/DesignPattern/" class="md-nav__link">
+        设计模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+          System
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/LinuxCrash/" class="md-nav__link">
+        Linux快速入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/OperatorSystemConcept/" class="md-nav__link">
+        操作系统：应用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/OperatorSystemDesign/" class="md-nav__link">
+        操作系统：设计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/PipelineInCPU%26OS%26Net/" class="md-nav__link">
+        CPU、操作系统和网络中的流水线
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FireFrame/" class="md-nav__link">
+        火焰图使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../GDB/" class="md-nav__link">
+        GDB简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          命令行的艺术
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        命令行的艺术
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基础
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    相关资料
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    用法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    简单命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    管道
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    列表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    复合命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    流程控制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    函数定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    协程
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../UsefulWebsite/" class="md-nav__link">
+        编程常用网站
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../economy/">Economy</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Economy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          个人研究
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          个人研究
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../economy/%E4%B8%AA%E4%BA%BA%E7%A0%94%E7%A9%B6/%E4%B8%AA%E4%BA%BA%E6%89%80%E5%BE%97%E7%A8%8E%E7%A0%94%E7%A9%B6/" class="md-nav__link">
+        个人所得税研究
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../economy/%E4%B8%AA%E4%BA%BA%E7%A0%94%E7%A9%B6/%E4%BA%94%E9%99%A9%E4%B8%80%E9%87%91%E7%A0%94%E7%A9%B6/" class="md-nav__link">
+        五险一金研究
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          房产万事
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          房产万事
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../economy/%E6%88%BF%E4%BA%A7%E4%B8%87%E4%BA%8B/%E6%88%BF%E4%BA%A7%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        房产风险评估
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../economy/%E6%88%BF%E4%BA%A7%E4%B8%87%E4%BA%8B/%E6%AD%A6%E6%B1%89%E5%B0%8F%E5%8C%BA%E7%8E%AF%E5%A2%83%E6%83%85%E5%86%B5%E8%B0%83%E6%9F%A5/" class="md-nav__link">
+        武汉小区环境情况调查
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../health/">Health</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Health
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../health/annual_examination2022/" class="md-nav__link">
+        2022年度体检
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../health/annual_examination2023/" class="md-nav__link">
+        2023肠胃检查
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Others
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Others
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+          2022年
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          2022年
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/2022%E5%B9%B4/2022-2023%E5%B9%B4%E5%BA%A6%E7%A7%9F%E6%88%BF%E6%96%B9%E6%A1%88/" class="md-nav__link">
+        2022-2023 年度租房方案
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          2023年
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          2023年
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/2023%E5%B9%B4/2023%E5%B9%B4%E4%BF%9D%E9%99%A9%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        2023 年个人保险配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/2023%E5%B9%B4/2023%E5%B9%B4%E5%8F%B0%E5%BC%8F%E6%9C%BA%E8%A3%85%E6%9C%BA%E6%96%B9%E6%A1%88/" class="md-nav__link">
+        2023 年台式机选配方案
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          Report
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Report
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../report/2021-2022%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" class="md-nav__link">
+        2021-2022年度报告
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../report/2022-2023%E7%89%B9%E5%88%AB%E5%9B%9E%E9%A1%BE/" class="md-nav__link">
+        2023 中期特别回顾
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    基础
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    相关资料
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    用法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    简单命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    管道
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    列表
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    复合命令
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    流程控制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    函数定义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    协程
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+  <nav class="md-tags" >
+    
+      
+      
+        <span class="md-tag">linux</span>
+      
+    
+  </nav>
+
+
+
+
+  <h1>命令行的艺术</h1>
+
+<p>熟练使用命令行是一种常常被忽视，或被认为难以掌握的技能，但实际上，它会提高工作时的灵活性以及生产力。本文是一份一些命令行使用技巧的摘要。有些技巧非常基础，而另一些则相当复杂，甚至晦涩难懂。</p>
+<div class="admonition note">
+<p class="admonition-title">内容来源</p>
+<p>本文内容来源于：<a href="https://github.com/jlevy/the-art-of-command-line">jlevy/the-art-of-command-line: Master the command line, in one page (github.com)</a></p>
+</div>
+<h2 id="_1">基础<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li>学习 Bash 的基础知识。具体地，在命令行中输入 <code>man bash</code> 并至少全文浏览一遍; 它理解起来很简单并且不冗长。其他的 shell 可能很好用，但 Bash 的功能已经足够强大并且到几乎总是可用的。</li>
+</ul>
+<details class="note">
+<summary>man bash</summary>
+<h2 id="_2">相关资料<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<ul>
+<li>中文文档：https://manpages.debian.org/stretch/manpages-zh/bash.1.zh_CN.html#shell%E8%AF%AD%E6%B3%95%28%22SHELL_GRAMMAR%22%29</li>
+<li>参考手册：https://www.gnu.org/software/bash/manual/html_node/index.html</li>
+</ul>
+<h2 id="_3">用法<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>bash [options] [file]</p>
+<h2 id="_4">简单命令<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>简单命令是可选变量赋值的序列，后面是由空格分隔的单词和重定向，并由控制运算符终止。第一个单词指定要执行的命令，并作为第零个参数传递。其余单词被作为参数传递给被调用的命令。
+简单命令的返回值是其退出状态，或如果命令被信号n终止，则为128 + n。</p>
+<h2 id="_5">管道<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>管道是一个或多个命令序列，由管道操作符 <code>|</code> 或 <code>|&amp;</code> 分隔。管道的格式为：
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="o">[</span><span class="nb">time</span><span class="w"> </span><span class="o">[</span>-p<span class="o">]]</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>!<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">[</span><span class="p">|</span>⎪<span class="p">|&amp;</span><span class="o">]</span><span class="w"> </span>command2<span class="w"> </span>...<span class="w"> </span><span class="o">]</span>
+</code></pre></div>
+管道的返回状态是最后一个命令的退出状态，除非启用了pipefail选项。</p>
+<p>如果time关键字在管道之前，则在管道终止时报告其执行消耗的经过时间、用户时间和系统时间。-p选项更改输出格式为POSIX指定的格式。</p>
+<p>管道中的每个命令都作为单独的进程执行（即在子Shell中）</p>
+<h2 id="_6">列表<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>列表是一个由一个或多个由 <code>;</code>、<code>&amp;</code>、<code>&amp;&amp;</code>或 <code>||</code> 分隔的管道序列，可选择地由 <code>;</code>、<code>&amp;</code> 或换行符终止的序列。</p>
+<p>在这些列表运算符中，&amp;&amp; 和 || 的优先级相等，其次是 ; 和 &amp;。</p>
+<p>一个命令序列可以用一个或多个换行符代替分号来分隔命令。</p>
+<p>如果一个命令被控制运算符 &amp; 终止，shell 会在一个子shell中以后台方式执行该命令。用分号分隔的命令是按顺序依次执行的；shell 会等待每个命令依次终止。返回状态是最后一个执行的命令的退出状态。</p>
+<h2 id="_7">复合命令<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>复合命令包括以下几种。在大多数情况下，命令描述中的列表可以与命令的其余部分通过一个或多个换行符分隔开来，并且可以在分号的位置用换行符代替。</p>
+<ul>
+<li><code>( 列表 )</code>: 列表在子shell环境中执行。</li>
+<li><code>{ 列表; }</code>: 列表在当前shell环境中简单地执行。</li>
+<li><code>((表达式))</code>: 根据下面ARITHMETIC EVALUATION中描述的规则评估表达式。如果表达式的值为非零，则返回状态为0；否则返回状态为1。这与let "expression"完全相同。</li>
+<li><code>[[表达式]]</code>: 根据条件表达式的评估返回0或1的状态。不会对 <code>[[</code> 和 <code>]]</code> 之间的单词执行单词分割和路径名展开；对程序展开、参数和变量展开、算术展开、命令替换、进程替换和引号去除进行(例如：<code>if [[ "$var" =~ ^[0-9]+$ ]]; then</code>)。</li>
+</ul>
+<p>在Bash中，=~运算符用于将字符串与POSIX扩展正则表达式进行匹配。它与==和!=运算符具有相同的优先级。如果字符串与模式匹配，则运算符返回0，否则返回1。如果正则表达式无效，则运算符返回2。</p>
+<h2 id="_8">流程控制<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p><div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">for</span><span class="w"> </span>name<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>word<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>list<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</code></pre></div>
+in 之后的一系列词会被扩展，产生一个项目列表。变量 name 被依次赋以这个列表中的每个元素， 序列 list 每次都被执行。如果 in word 被忽略，那么 for 命令遍历 已设置的位置参数(positional parameter，参见下面的 PARAMETERS 参数)， 为每一个执行一次序列 list。 返回值是最后一个命令的返回值。如果 in 之后的词扩展的结果是空列表，就不会执行任何命令，返回值是 0。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">for</span><span class="w"> </span><span class="o">((</span><span class="w"> </span>expr1<span class="w"> </span><span class="p">;</span><span class="w"> </span>expr2<span class="w"> </span><span class="p">;</span><span class="w"> </span>expr3<span class="w"> </span><span class="o">))</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>list<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</code></pre></div>
+首先，算术表达式 expr1 被根据下面 算术求值 (ARITHMETIC EVALUATION) 中的规则进行求值。 然后算术表达式 expr2 被循环求值，直到它等于 0。每次 expr2 结果非零时，序列 list 都被执行， 算术表达式 expr3 被求值。如果任何表达式被忽略，将被视为执行结果是 1。 返回值是序列 list 中被执行的最后一个命令的返回值；或者是 false，如果任何表达式非法的话。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">select</span><span class="w"> </span>name<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="k">in</span><span class="w"> </span>word<span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>list<span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</code></pre></div>
+in 之后的一系列词会被扩展，产生一个项目列表。这个扩展后的词集合被输出到标准错误上，每个前面 加上一个数字。如果 in word 被忽略，将输出位置参数 (参见下面的 PARAMETERS 参数 章节)。 PS3 提示符将被显示出来，等待从标准输入得到一行输入。如果 输入是一个数字且显示中有对应的词，那么变量 name 的值将设置为这个词。如果输入一个空行，那么词和提示符将再次显示出来。如果读入了一个 EOF，命令就结束。 任何其他值将设置变量 name 为空。读入的行保存为变量 REPLY. 序列 list 在每次选择之后都会执行，直到执行了一个 break 命令。 select 的退出状态是序列 list 中执行的最后一个命令的退出状态，如果没有执行命令就是 0。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="k">case</span><span class="w"> </span>word<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="o">[(]</span><span class="w"> </span>pattern<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>pattern<span class="w"> </span><span class="o">]</span><span class="w"> </span>...<span class="w"> </span><span class="o">)</span><span class="w"> </span>list<span class="w"> </span><span class="p">;;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>...<span class="w"> </span><span class="k">esac</span>
+</code></pre></div>
+case 命令首先扩展 word, 然后依次试着用每个 pattern 来匹配它， 使用与路径扩展相同的匹配规则(参见下面的 Pathname Expansion 路径扩展 章节)。如果找到一个匹配，相应的序列将被执行。找到一个匹配之后，不会再尝试其后的匹配。 如果没有模式可以匹配，返回值是 0。否则，返回序列中最后执行的命令的返回值。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="k">if</span><span class="w"> </span>list<span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span>list<span class="p">;</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="k">elif</span><span class="w"> </span>list<span class="p">;</span><span class="w"> </span><span class="k">then</span><span class="w"> </span>list<span class="p">;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span>...<span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="k">else</span><span class="w"> </span>list<span class="p">;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="k">fi</span>
+</code></pre></div>
+序列 if list 被执行。如果退出状态是 0，then list 将被执行。否则，每个 elif 将被一次执行，如果退出状态是 0，相应的 then list 将被执行，命令结束。 否则，else list 将被执行，如果存在的话。 退出状态是最后执行的命令的退出状态，或者是 0，如果所有条件都不满足。
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">while</span><span class="w"> </span>list<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>list<span class="p">;</span><span class="w"> </span><span class="k">done</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">until</span><span class="w"> </span>list<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>list<span class="p">;</span><span class="w"> </span><span class="k">done</span>
+</code></pre></div>
+while 命令不断地执行序列 do list，直到序列中最后一个命令返回 0。 until 命令和 while 命令等价，除了对条件的测试恰好相反；序列 do list 执行直到序列中最后一个命令返回非零状态值。 while 和 until 命令的退出状态是序列 do list 中最后一个命令的退出状态， 或者是 0，如果没有执行任何命令。</p>
+<h2 id="_9">函数定义<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>Shell函数可以按照以下方式声明：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>name<span class="w"> </span><span class="o">()</span><span class="w"> </span>compound-command<span class="w"> </span><span class="o">[</span>redirection<span class="o">]</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="k">function</span><span class="w"> </span>name<span class="w"> </span><span class="o">[()]</span><span class="w"> </span>compound-command<span class="w"> </span><span class="o">[</span>redirection<span class="o">]</span>
+</code></pre></div>
+<p>这将定义一个名为name的函数。<code>function</code> 是可选的。如果提供了关键字 <code>function</code>，括号是可选的。函数的主体是复合命令, 该命令通常是在 <code>{</code> 和<code>}</code> 之间的命令列表。在定义函数时指定的任何重定向（请参见下面的“重定向”）将在执行函数时执行。函数定义的退出状态为零，除非发生语法错误或已存在相同名称的只读函数。当执行函数时，函数的退出状态是主体中执行的最后一个命令的退出状态。</p>
+<h2 id="_10">协程<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>一个协程是以 coproc 关键字为前缀的 shell 命令。一个协程在子shell中异步执行，就像使用 &amp; 控制运算符终止的命令一样，执行shell和协程之间建立了一个双向管道。</p>
+<p>协程的格式是：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>coproc<span class="w"> </span><span class="o">[</span>NAME<span class="o">]</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="o">[</span>redirections<span class="o">]</span>
+</code></pre></div>
+<p>这将创建名为 NAME 的协程。如果未提供 NAME，则默认名称为 COPROC。当协程被执行时，shell 在执行 shell 的上下文中创建一个名为 NAME 的数组变量(见下文)。命令的标准输出通过管道连接到执行 shell 中的一个文件描述符，并将该文件描述符分配给 NAME[0]。命令的标准输入通过管道连接到执行 shell 中的一个文件描述符，并将该文件描述符分配给 NAME[1]。在命令指定的任何重定向之前，建立了这个管道。文件描述符可以使用标准的单词扩展作为 shell 命令和重定向的参数。除了创建用于执行命令和处理替换的文件描述符外，这些文件描述符在子shell中不可用。执行协程的 shell 的进程 ID 可作为变量 NAME_PID 的值。wait 内置命令可用于等待协程终止。</p>
+<p>由于协程被创建为异步命令，因此 coproc 命令始终返回成功。协程的返回状态是命令的退出状态。</p>
+</details>
+<ul>
+<li>熟悉至少一个基于文本的编辑器。通常而言 Vim （<code>vi</code>） 会是你最好的选择，毕竟在终端中编辑文本时 Vim 是最好用的工具（甚至大部分情况下 Vim 要比 Emacs、大型 IDE 或是炫酷的编辑器更好用）。</li>
+<li>学会如何使用 <code>man</code> 命令去阅读文档。学会使用 <code>apropos</code> 去查找文档。知道有些命令并不对应可执行文件，而是在 Bash 内置好的，此时可以使用 <code>help</code> 和 <code>help -d</code> 命令获取帮助信息。你可以用 <code>type</code> 命令 来判断这个命令到底是可执行文件、shell 内置命令还是别名。</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">apropos</p>
+<p>apropos 是一个 Linux/Unix 命令，用于在系统的手册页面（man page）中查找与指定关键词相关的命令和函数。它的作用类似于 man -k 命令，但是 apropos 命令更加灵活和方便。</p>
+<p>例如，要查找与“SSH”相关的手册页，可以使用以下命令：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>apropos<span class="w"> </span>ssh
+</code></pre></div>
+</div>
+<ul>
+<li>学会使用 <code>&gt;</code> 和 <code>&lt;</code> 来重定向输出和输入，学会使用 <code>|</code> 来重定向管道。明白 <code>&gt;</code> 会覆盖了输出文件而 <code>&gt;&gt;</code> 是在文件末添加。了解标准输出 stdout 和标准错误 stderr。</li>
+<li>
+<p>学会使用通配符 <code>*</code> （或许再算上 <code>?</code> 和 <code>[</code>...<code>]</code>） 和引用以及引用中 <code>'</code> 和 <code>"</code> 的区别（后文中有一些具体的例子）。</p>
+</li>
+<li>
+<p>学会基本的文件管理工具：<code>ls</code> 和 <code>ls -l</code> （了解 <code>ls -l</code> 中每一列代表的意义），<code>less</code>，<code>head</code>，<code>tail</code> 和 <code>tail -f</code> （甚至 <code>less +F</code>），<code>ln</code> 和 <code>ln -s</code> （了解硬链接与软链接的区别），<code>chown</code>，<code>chmod</code>，<code>du</code> （硬盘使用情况概述：<code>du -hs *</code>）。 关于文件系统的管理，学习 <code>df</code>，<code>mount</code>，<code>fdisk</code>，<code>mkfs</code>，<code>lsblk</code>。知道 inode 是什么（与 <code>ls -i</code> 和 <code>df -i</code> 等命令相关）。</p>
+</li>
+<li>熟悉 Bash 中的任务管理工具：<code>&amp;</code>，<strong>ctrl-z</strong>，<strong>ctrl-c</strong>，<code>jobs</code>，<code>fg</code>，<code>bg</code>，<code>kill</code> 等。</li>
+</ul>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../GDB/" class="md-footer__link md-footer__link--prev" aria-label="上一页: GDB简介" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  上一页
+                </span>
+                GDB简介
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../UsefulWebsite/" class="md-footer__link md-footer__link--next" aria-label="下一页: 编程常用网站" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  下一页
+                </span>
+                编程常用网站
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://github.com/Fu-Qingchen" target="_blank" rel="noopener">Fu_Qingchen</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+    
+  </body>
+</html>

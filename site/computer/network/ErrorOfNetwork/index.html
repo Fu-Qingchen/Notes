@@ -1,0 +1,2939 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ComputerNetworking/">
+      
+      
+        <link rel="next" href="../PersonalNAS/">
+      
+      <link rel="icon" href="../../../assets/book.svg">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.3">
+    
+    
+      
+        <title>常见网络通信错误码 - Q_C Notebook</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.c4a75a56.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="../../../css/jetbrainsmono.css">
+    
+      <link rel="stylesheet" href="../../../css/katex.min.css">
+    
+      <link rel="stylesheet" href="../../../css/tasklist.css">
+    
+      <link rel="stylesheet" href="../../../css/custom.css">
+    
+      <link rel="stylesheet" href="../../../css/card.css">
+    
+      <link rel="stylesheet" href="../../../css/flink.css">
+    
+      <link rel="stylesheet" href="../../../css/changelog_extra.css">
+    
+      <link rel="stylesheet" href="../../../css/heti.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../.." title="Q_C Notebook" class="md-header__button md-logo" aria-label="Q_C Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Q_C Notebook
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              常见网络通信错误码
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <form class="md-header__option" data-md-component="palette">
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+          
+            <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+          
+          <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="" data-md-color-accent=""  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+          
+            <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_1" hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+            </label>
+          
+        
+      </form>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../archive/CourseDesignOfMechanicalPrinciple/" class="md-tabs__link">
+        Archive
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../" class="md-tabs__link md-tabs__link--active">
+        Computer
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../economy/" class="md-tabs__link">
+        Economy
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../health/" class="md-tabs__link">
+        Health
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../others/2022%E5%B9%B4/2022-2023%E5%B9%B4%E5%BA%A6%E7%A7%9F%E6%88%BF%E6%96%B9%E6%A1%88/" class="md-tabs__link">
+        Others
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../report/2021-2022%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" class="md-tabs__link">
+        Report
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="Q_C Notebook" class="md-nav__button md-logo" aria-label="Q_C Notebook" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 4v6l-2-2-2 2V4H9v16h10V4h-2M3 7V5h2V4a2 2 0 0 1 2-2h12c1.05 0 2 .95 2 2v16c0 1.05-.95 2-2 2H7c-1.05 0-2-.95-2-2v-1H3v-2h2v-4H3v-2h2V7H3m2-2v2h2V5H5m0 14h2v-2H5v2m0-6h2v-2H5v2Z"/></svg>
+
+    </a>
+    Q_C Notebook
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Archive
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Archive
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../archive/CourseDesignOfMechanicalPrinciple/" class="md-nav__link">
+        课程设计：牛头刨床机构的分析与综合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../archive/CourseDesignOfMechanismDesign/" class="md-nav__link">
+        课程设计：双级圆柱斜齿轮减速器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../archive/CourseDesignOnHydraulicElementsAndTransitionSystems/" class="md-nav__link">
+        课程设计：65t-55m岸桥挂舱保护液压缸设计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../archive/CourseDesignOnMechanicalAndElectronicTransmissionAndControl/" class="md-nav__link">
+        课程设计：MQ4035门座起重机变幅机构变频调速电气控制线路设计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../archive/GraduationDesign_WHUT_Archive/" class="md-nav__link">
+        本科毕业设计：一种直角坐标式船舶系泊辅助机械臂设计与分析
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../">Computer</a>
+          
+            <label for="__nav_3">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Computer
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Algorithm
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Algorithm
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../algorithm/Introduction2Algorithms/" class="md-nav__link">
+        数据结构与算法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Language
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Language
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language/CPPBase/" class="md-nav__link">
+        C++基础回顾
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language/CPPEffective/" class="md-nav__link">
+        Effective C++ 笔记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../language/LearnCPP/" class="md-nav__link">
+        C++ Primer 阅读笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" checked>
+      
+      
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          Network
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Network
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ComputerNetworking/" class="md-nav__link">
+        计算机网络
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          常见网络通信错误码
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        常见网络通信错误码
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    系统错误码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows套接字错误码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openssl" class="md-nav__link">
+    OpenSSL错误码
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../PersonalNAS/" class="md-nav__link">
+        个人 NAS 解决方案
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          Others
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Others
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../others/DesignPattern/" class="md-nav__link">
+        设计模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="0">
+          System
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/LinuxCrash/" class="md-nav__link">
+        Linux快速入门
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/OperatorSystemConcept/" class="md-nav__link">
+        操作系统：应用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/OperatorSystemDesign/" class="md-nav__link">
+        操作系统：设计
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system/PipelineInCPU%26OS%26Net/" class="md-nav__link">
+        CPU、操作系统和网络中的流水线
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_7" >
+      
+      
+        
+          
+        
+          
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_3_7" id="__nav_3_7_label" tabindex="0">
+          Tools
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_7">
+          <span class="md-nav__icon md-icon"></span>
+          Tools
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/FireFrame/" class="md-nav__link">
+        火焰图使用
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/GDB/" class="md-nav__link">
+        GDB简介
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/TheArtofCommandLine/" class="md-nav__link">
+        命令行的艺术
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tools/UsefulWebsite/" class="md-nav__link">
+        编程常用网站
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../economy/">Economy</a>
+          
+            <label for="__nav_4">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Economy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          个人研究
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          个人研究
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../economy/%E4%B8%AA%E4%BA%BA%E7%A0%94%E7%A9%B6/%E4%B8%AA%E4%BA%BA%E6%89%80%E5%BE%97%E7%A8%8E%E7%A0%94%E7%A9%B6/" class="md-nav__link">
+        个人所得税研究
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../economy/%E4%B8%AA%E4%BA%BA%E7%A0%94%E7%A9%B6/%E4%BA%94%E9%99%A9%E4%B8%80%E9%87%91%E7%A0%94%E7%A9%B6/" class="md-nav__link">
+        五险一金研究
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          房产万事
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          房产万事
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../economy/%E6%88%BF%E4%BA%A7%E4%B8%87%E4%BA%8B/%E6%88%BF%E4%BA%A7%E9%A3%8E%E9%99%A9%E8%AF%84%E4%BC%B0/" class="md-nav__link">
+        房产风险评估
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../economy/%E6%88%BF%E4%BA%A7%E4%B8%87%E4%BA%8B/%E6%AD%A6%E6%B1%89%E5%B0%8F%E5%8C%BA%E7%8E%AF%E5%A2%83%E6%83%85%E5%86%B5%E8%B0%83%E6%9F%A5/" class="md-nav__link">
+        武汉小区环境情况调查
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+        
+          
+            
+          
+        
+          
+        
+          
+        
+      
+      
+        
+        
+        <div class="md-nav__link md-nav__link--index ">
+          <a href="../../../health/">Health</a>
+          
+            <label for="__nav_5">
+              <span class="md-nav__icon md-icon"></span>
+            </label>
+          
+        </div>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Health
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../health/annual_examination2022/" class="md-nav__link">
+        2022年度体检
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../health/annual_examination2023/" class="md-nav__link">
+        2023肠胃检查
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+          Others
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Others
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+      
+      
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+          2022年
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          2022年
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/2022%E5%B9%B4/2022-2023%E5%B9%B4%E5%BA%A6%E7%A7%9F%E6%88%BF%E6%96%B9%E6%A1%88/" class="md-nav__link">
+        2022-2023 年度租房方案
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_2" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_6_2" id="__nav_6_2_label" tabindex="0">
+          2023年
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          2023年
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/2023%E5%B9%B4/2023%E5%B9%B4%E4%BF%9D%E9%99%A9%E9%85%8D%E7%BD%AE/" class="md-nav__link">
+        2023 年个人保险配置
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../others/2023%E5%B9%B4/2023%E5%B9%B4%E5%8F%B0%E5%BC%8F%E6%9C%BA%E8%A3%85%E6%9C%BA%E6%96%B9%E6%A1%88/" class="md-nav__link">
+        2023 年台式机选配方案
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+      
+      
+        
+          
+        
+          
+        
+      
+      
+        <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+          Report
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Report
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../report/2021-2022%E5%B9%B4%E5%BA%A6%E6%8A%A5%E5%91%8A/" class="md-nav__link">
+        2021-2022年度报告
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../report/2022-2023%E7%89%B9%E5%88%AB%E5%9B%9E%E9%A1%BE/" class="md-nav__link">
+        2023 中期特别回顾
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    概述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    系统错误码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#windows" class="md-nav__link">
+    Windows套接字错误码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#openssl" class="md-nav__link">
+    OpenSSL错误码
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+  <nav class="md-tags" >
+    
+      
+      
+        <span class="md-tag">网络</span>
+      
+    
+      
+      
+        <span class="md-tag">问题排查</span>
+      
+    
+  </nav>
+
+
+
+
+<h1 id="_1">常见网络通信错误码<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">概述<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>​       在程序的问题排查中，经常会通过错误码进行分析，网络通信涉及的错误码主要包括系统错误码、Windows 套接字错误码和 OpenSSL 错误码这几种</p>
+<h2 id="_3">系统错误码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th align="left">错误码</th>
+<th align="left">值</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">EPERM</td>
+<td align="left">1</td>
+<td align="left">Operation not permitted：不允许的操作</td>
+</tr>
+<tr>
+<td align="left">ENOENT</td>
+<td align="left">2</td>
+<td align="left">No such file or directory：没有那个文件或目录</td>
+</tr>
+<tr>
+<td align="left">ESRCH</td>
+<td align="left">3</td>
+<td align="left">No such process：没有那个进程</td>
+</tr>
+<tr>
+<td align="left">EINTR</td>
+<td align="left">4</td>
+<td align="left">Interrupted system call：被中断的系统调用</td>
+</tr>
+<tr>
+<td align="left">EIO</td>
+<td align="left">5</td>
+<td align="left">Input/output error：输入/输出错误</td>
+</tr>
+<tr>
+<td align="left">ENXIO</td>
+<td align="left">6</td>
+<td align="left">No such device or address：没有那个设备或地址</td>
+</tr>
+<tr>
+<td align="left">E2BIG</td>
+<td align="left">7</td>
+<td align="left">Argument list too long：参数列表过长</td>
+</tr>
+<tr>
+<td align="left">ENOEXEC</td>
+<td align="left">8</td>
+<td align="left">Exec format error：可执行文件格式错误</td>
+</tr>
+<tr>
+<td align="left">EBADF</td>
+<td align="left">9</td>
+<td align="left">Bad file descriptor：错误的文件描述符</td>
+</tr>
+<tr>
+<td align="left">ECHILD</td>
+<td align="left">10</td>
+<td align="left">No child processes：没有子进程</td>
+</tr>
+<tr>
+<td align="left">EAGAIN</td>
+<td align="left">11</td>
+<td align="left">Resource temporarily unavailable：资源暂时不可用</td>
+</tr>
+<tr>
+<td align="left">ENOMEM</td>
+<td align="left">12</td>
+<td align="left">Cannot allocate memory：无法分配内存</td>
+</tr>
+<tr>
+<td align="left">EACCES</td>
+<td align="left">13</td>
+<td align="left">Permission denied：权限不够</td>
+</tr>
+<tr>
+<td align="left">EFAULT</td>
+<td align="left">14</td>
+<td align="left">Bad address：错误的地址</td>
+</tr>
+<tr>
+<td align="left">ENOTBLK</td>
+<td align="left">15</td>
+<td align="left">Block device required：需要块设备</td>
+</tr>
+<tr>
+<td align="left">EBUSY</td>
+<td align="left">16</td>
+<td align="left">Device or resource busy：设备或资源忙</td>
+</tr>
+<tr>
+<td align="left">EEXIST</td>
+<td align="left">17</td>
+<td align="left">File exists：文件已存在</td>
+</tr>
+<tr>
+<td align="left">EXDEV</td>
+<td align="left">18</td>
+<td align="left">Invalid cross-device link：无效的跨设备链接</td>
+</tr>
+<tr>
+<td align="left">ENODEV</td>
+<td align="left">19</td>
+<td align="left">No such device：没有那个设备</td>
+</tr>
+<tr>
+<td align="left">ENOTDIR</td>
+<td align="left">20</td>
+<td align="left">Not a directory：不是目录</td>
+</tr>
+<tr>
+<td align="left">EISDIR</td>
+<td align="left">21</td>
+<td align="left">Is a directory：是一个目录</td>
+</tr>
+<tr>
+<td align="left">EINVAL</td>
+<td align="left">22</td>
+<td align="left">Invalid argument：无效的参数</td>
+</tr>
+<tr>
+<td align="left">ENFILE</td>
+<td align="left">23</td>
+<td align="left">Too many open files in system：系统中打开的文件过多</td>
+</tr>
+<tr>
+<td align="left">EMFILE</td>
+<td align="left">24</td>
+<td align="left">Too many open files：打开的文件过多</td>
+</tr>
+<tr>
+<td align="left">ENOTTY</td>
+<td align="left">25</td>
+<td align="left">Inappropriate ioctl for device：对设备不适当的 ioctl 操作</td>
+</tr>
+<tr>
+<td align="left">ETXTBSY</td>
+<td align="left">26</td>
+<td align="left">Text file busy：文本文件忙</td>
+</tr>
+<tr>
+<td align="left">EFBIG</td>
+<td align="left">27</td>
+<td align="left">File too large：文件过大</td>
+</tr>
+<tr>
+<td align="left">ENOSPC</td>
+<td align="left">28</td>
+<td align="left">No space left on device：设备上没有空间</td>
+</tr>
+<tr>
+<td align="left">ESPIPE</td>
+<td align="left">29</td>
+<td align="left">Illegal seek：非法 seek 操作</td>
+</tr>
+<tr>
+<td align="left">EROFS</td>
+<td align="left">30</td>
+<td align="left">Read-only file system：只读文件系统</td>
+</tr>
+<tr>
+<td align="left">EMLINK</td>
+<td align="left">31</td>
+<td align="left">Too many links：过多的链接</td>
+</tr>
+<tr>
+<td align="left">EPIPE</td>
+<td align="left">32</td>
+<td align="left">Broken pipe：断开的管道</td>
+</tr>
+<tr>
+<td align="left">EDOM</td>
+<td align="left">33</td>
+<td align="left">Numerical argument out of domain：数值参数超出域</td>
+</tr>
+<tr>
+<td align="left">ERANGE</td>
+<td align="left">34</td>
+<td align="left">Numerical result out of range：数值结果超出范围</td>
+</tr>
+<tr>
+<td align="left">EDEADLK</td>
+<td align="left">35</td>
+<td align="left">Resource deadlock avoided：已避免资源死锁</td>
+</tr>
+<tr>
+<td align="left">ENAMETOOLONG</td>
+<td align="left">36</td>
+<td align="left">File name too long：文件名过长</td>
+</tr>
+<tr>
+<td align="left">ENOLCK</td>
+<td align="left">37</td>
+<td align="left">No locks available：没有可用的锁</td>
+</tr>
+<tr>
+<td align="left">ENOSYS</td>
+<td align="left">38</td>
+<td align="left">Function not implemented：函数未实现</td>
+</tr>
+<tr>
+<td align="left">ENOTEMPTY</td>
+<td align="left">39</td>
+<td align="left">Directory not empty：目录非空</td>
+</tr>
+<tr>
+<td align="left">ELOOP</td>
+<td align="left">40</td>
+<td align="left">Too many levels of symbolic links：符号连接的层数过多</td>
+</tr>
+<tr>
+<td align="left">ENOMSG</td>
+<td align="left">42</td>
+<td align="left">No message of desired type：没有符合需求格式的消息</td>
+</tr>
+<tr>
+<td align="left">EIDRM</td>
+<td align="left">43</td>
+<td align="left">Identifier removed：标识符已删除</td>
+</tr>
+<tr>
+<td align="left">ECHRNG</td>
+<td align="left">44</td>
+<td align="left">Channel number out of range：通道编号超出范围</td>
+</tr>
+<tr>
+<td align="left">EL2NSYNC</td>
+<td align="left">45</td>
+<td align="left">Level 2 not synchronized：级别 2 尚未同步</td>
+</tr>
+<tr>
+<td align="left">EL3HLT</td>
+<td align="left">46</td>
+<td align="left">Level 3 halted：级别 3 已关闭</td>
+</tr>
+<tr>
+<td align="left">EL3RST</td>
+<td align="left">47</td>
+<td align="left">Level 3 reset：级别 3 已重置</td>
+</tr>
+<tr>
+<td align="left">ELNRNG</td>
+<td align="left">48</td>
+<td align="left">Link number out of range：链接数超出范围</td>
+</tr>
+<tr>
+<td align="left">EUNATCH</td>
+<td align="left">49</td>
+<td align="left">Protocol driver not attached：未加载协议驱动程序</td>
+</tr>
+<tr>
+<td align="left">ENOCSI</td>
+<td align="left">50</td>
+<td align="left">No CSI structure available：没有可用的 CSI 结构</td>
+</tr>
+<tr>
+<td align="left">EL2HLT</td>
+<td align="left">51</td>
+<td align="left">Level 2 halted：级别 2 己关闭</td>
+</tr>
+<tr>
+<td align="left">EBADE</td>
+<td align="left">52</td>
+<td align="left">Invalid exchange：无效的交换</td>
+</tr>
+<tr>
+<td align="left">EBADR</td>
+<td align="left">53</td>
+<td align="left">Invalid request descriptor：无效的请求描述符</td>
+</tr>
+<tr>
+<td align="left">EXFULL</td>
+<td align="left">54</td>
+<td align="left">Exchange full：交换满</td>
+</tr>
+<tr>
+<td align="left">ENOANO</td>
+<td align="left">55</td>
+<td align="left">No anode：没有 anode</td>
+</tr>
+<tr>
+<td align="left">EBADRQC</td>
+<td align="left">56</td>
+<td align="left">Invalid request code：无效的请求码</td>
+</tr>
+<tr>
+<td align="left">EBADSLT</td>
+<td align="left">57</td>
+<td align="left">Invalid slot：不适用的 slot</td>
+</tr>
+<tr>
+<td align="left">EBFONT</td>
+<td align="left">59</td>
+<td align="left">Bad font file format：错误的字体文件格式</td>
+</tr>
+<tr>
+<td align="left">ENOSTR</td>
+<td align="left">60</td>
+<td align="left">Device not a stream：设备不是流</td>
+</tr>
+<tr>
+<td align="left">ENODATA</td>
+<td align="left">61</td>
+<td align="left">No data available：没有可用的数据</td>
+</tr>
+<tr>
+<td align="left">ETIME</td>
+<td align="left">62</td>
+<td align="left">Timer expired：计时器超时</td>
+</tr>
+<tr>
+<td align="left">ENOSR</td>
+<td align="left">63</td>
+<td align="left">Out of streams resources：流资源不足</td>
+</tr>
+<tr>
+<td align="left">ENONET</td>
+<td align="left">64</td>
+<td align="left">Machine is not on the network：机器不在网络中</td>
+</tr>
+<tr>
+<td align="left">ENOPKG</td>
+<td align="left">65</td>
+<td align="left">Package not installed：包未安装</td>
+</tr>
+<tr>
+<td align="left">EREMOTE</td>
+<td align="left">66</td>
+<td align="left">Object is remote：对象是远程的</td>
+</tr>
+<tr>
+<td align="left">ENOLINK</td>
+<td align="left">67</td>
+<td align="left">Link has been severed：链接已有服务</td>
+</tr>
+<tr>
+<td align="left">EADV</td>
+<td align="left">68</td>
+<td align="left">Advertise error：通知错误</td>
+</tr>
+<tr>
+<td align="left">ESRMNT</td>
+<td align="left">69</td>
+<td align="left">Srmount error：Srmount 错误</td>
+</tr>
+<tr>
+<td align="left">ECOMM</td>
+<td align="left">70</td>
+<td align="left">Communication error on send：发送时出现通讯错误</td>
+</tr>
+<tr>
+<td align="left">EPROTO</td>
+<td align="left">71</td>
+<td align="left">Protocol error：协议错误</td>
+</tr>
+<tr>
+<td align="left">EMULTIHOP</td>
+<td align="left">72</td>
+<td align="left">Multihop attempted：尝试 Multihop</td>
+</tr>
+<tr>
+<td align="left">EDOTDOT</td>
+<td align="left">73</td>
+<td align="left">RFS specific error：RFS 特定错误</td>
+</tr>
+<tr>
+<td align="left">EBADMSG</td>
+<td align="left">74</td>
+<td align="left">Not a data message：错误的消息</td>
+</tr>
+<tr>
+<td align="left">EOVERFLOW</td>
+<td align="left">75</td>
+<td align="left">Value too large for defined data type：对已定义的数据类型来说值过大</td>
+</tr>
+<tr>
+<td align="left">ENOTUNIQ</td>
+<td align="left">76</td>
+<td align="left">Name not unique on network：网络上的名称不是唯一的</td>
+</tr>
+<tr>
+<td align="left">EBADFD</td>
+<td align="left">77</td>
+<td align="left">File descriptor in bad state：文件描述符处于错误状态</td>
+</tr>
+<tr>
+<td align="left">EREMCHG</td>
+<td align="left">78</td>
+<td align="left">Remote address changed：远程地址已改变</td>
+</tr>
+<tr>
+<td align="left">ELIBACC</td>
+<td align="left">79</td>
+<td align="left">Can not access a needed shared library：无法访问必须的共享库</td>
+</tr>
+<tr>
+<td align="left">ELIBBAD</td>
+<td align="left">80</td>
+<td align="left">Accessing a corrupted shared library：正在访问一个已毁坏的共享库</td>
+</tr>
+<tr>
+<td align="left">ELIBSCN</td>
+<td align="left">81</td>
+<td align="left">.lib section in a.out corrupted：a.out 中的 .lib 节已毁坏</td>
+</tr>
+<tr>
+<td align="left">ELIBMAX</td>
+<td align="left">82</td>
+<td align="left">Attempting to link in too many shared libraries：试图与过多的共享库相链接</td>
+</tr>
+<tr>
+<td align="left">ELIBEXEC</td>
+<td align="left">83</td>
+<td align="left">Cannot exec a shared library directly：无法直接执行共享库</td>
+</tr>
+<tr>
+<td align="left">EILSEQ</td>
+<td align="left">84</td>
+<td align="left">Illegal byte sequence：无效或不完整的多字节字符或宽字符</td>
+</tr>
+<tr>
+<td align="left">ERESTART</td>
+<td align="left">85</td>
+<td align="left">Interrupted system call should be restarted：被中断的系统调用应该重新启动</td>
+</tr>
+<tr>
+<td align="left">ESTRPIPE</td>
+<td align="left">86</td>
+<td align="left">Streams pipe error：流管道错误</td>
+</tr>
+<tr>
+<td align="left">EUSERS</td>
+<td align="left">87</td>
+<td align="left">Too many users：用户过多</td>
+</tr>
+<tr>
+<td align="left">ENOTSOCK</td>
+<td align="left">88</td>
+<td align="left">Socket operation on non-socket：对非套接字进行套接字操作</td>
+</tr>
+<tr>
+<td align="left">EDESTADDRREQ</td>
+<td align="left">89</td>
+<td align="left">Destination address required：需要目标地址</td>
+</tr>
+<tr>
+<td align="left">EMSGSIZE</td>
+<td align="left">90</td>
+<td align="left">Message too long：消息过长</td>
+</tr>
+<tr>
+<td align="left">EPROTOTYPE</td>
+<td align="left">91</td>
+<td align="left">Protocol wrong type for socket：错误的 socket 协议类型</td>
+</tr>
+<tr>
+<td align="left">ENOPROTOOPT</td>
+<td align="left">92</td>
+<td align="left">Protocol not available：不可用的协议</td>
+</tr>
+<tr>
+<td align="left">EPROTONOSUPPORT</td>
+<td align="left">93</td>
+<td align="left">Protocol not supported：不支持的协议</td>
+</tr>
+<tr>
+<td align="left">ESOCKTNOSUPPORT</td>
+<td align="left">94</td>
+<td align="left">Socket type not supported：不支持的套接字类型</td>
+</tr>
+<tr>
+<td align="left">EOPNOTSUPP</td>
+<td align="left">95</td>
+<td align="left">Operation not supported on transport endpoint：不支持的操作</td>
+</tr>
+<tr>
+<td align="left">EPFNOSUPPORT</td>
+<td align="left">96</td>
+<td align="left">Protocol family not supported：不支持的协议族</td>
+</tr>
+<tr>
+<td align="left">EAFNOSUPPORT</td>
+<td align="left">97</td>
+<td align="left">Address family not supported by protocol：协议不支持的地址族</td>
+</tr>
+<tr>
+<td align="left">EADDRINUSE</td>
+<td align="left">98</td>
+<td align="left">Address already in use：地址已在使用</td>
+</tr>
+<tr>
+<td align="left">EADDRNOTAVAIL</td>
+<td align="left">99</td>
+<td align="left">Cannot assign requested address：无法指定被请求的地址</td>
+</tr>
+<tr>
+<td align="left">ENETDOWN</td>
+<td align="left">100</td>
+<td align="left">Network is down：网络已关闭</td>
+</tr>
+<tr>
+<td align="left">ENETUNREACH</td>
+<td align="left">101</td>
+<td align="left">Network is unreachable：网络不可达</td>
+</tr>
+<tr>
+<td align="left">ENETRESET</td>
+<td align="left">102</td>
+<td align="left">Network dropped connection because of reset：重置时断开网络连接</td>
+</tr>
+<tr>
+<td align="left">ECONNABORTED</td>
+<td align="left">103</td>
+<td align="left">Software caused connection abort：由软件导致的连接断开</td>
+</tr>
+<tr>
+<td align="left">ECONNRESET</td>
+<td align="left">104</td>
+<td align="left">Connection reset by peer：连接被对方重设</td>
+</tr>
+<tr>
+<td align="left">ENOBUFS</td>
+<td align="left">105</td>
+<td align="left">No buffer space available：没有可用的缓冲区空间</td>
+</tr>
+<tr>
+<td align="left">EISCONN</td>
+<td align="left">106</td>
+<td align="left">Transport endpoint is already connected：传输端点已连接</td>
+</tr>
+<tr>
+<td align="left">ENOTCONN</td>
+<td align="left">107</td>
+<td align="left">Transport endpoint is not connected：传输端点尚未连接</td>
+</tr>
+<tr>
+<td align="left">ESHUTDOWN</td>
+<td align="left">108</td>
+<td align="left">Cannot send after transport endpoint shutdown：无法在传输端点关闭以后发送</td>
+</tr>
+<tr>
+<td align="left">ETOOMANYREFS</td>
+<td align="left">109</td>
+<td align="left">Too many references: cannot splice：过多的引用：无法接合</td>
+</tr>
+<tr>
+<td align="left">ETIMEDOUT</td>
+<td align="left">110</td>
+<td align="left">Connection timed out：连接超时</td>
+</tr>
+<tr>
+<td align="left">ECONNREFUSED</td>
+<td align="left">111</td>
+<td align="left">Connection refused：拒绝连接</td>
+</tr>
+<tr>
+<td align="left">EHOSTDOWN</td>
+<td align="left">112</td>
+<td align="left">Host is down：主机关闭</td>
+</tr>
+<tr>
+<td align="left">EHOSTUNREACH</td>
+<td align="left">113</td>
+<td align="left">No route to host：没有到主机的路由</td>
+</tr>
+<tr>
+<td align="left">EALREADY</td>
+<td align="left">114</td>
+<td align="left">Operation already in progress：操作已经在进行</td>
+</tr>
+<tr>
+<td align="left">EINPROGRESS</td>
+<td align="left">115</td>
+<td align="left">Operation now in progress：操作现在正在进行</td>
+</tr>
+<tr>
+<td align="left">ESTALE</td>
+<td align="left">116</td>
+<td align="left">Stale file handle：过旧的文件控柄</td>
+</tr>
+<tr>
+<td align="left">EUCLEAN</td>
+<td align="left">117</td>
+<td align="left">Structure needs cleaning：结构需要清理</td>
+</tr>
+<tr>
+<td align="left">ENOTNAM</td>
+<td align="left">118</td>
+<td align="left">Not a XENIX named type file：不是 XENIX 命名的类型文件</td>
+</tr>
+<tr>
+<td align="left">ENAVAIL</td>
+<td align="left">119</td>
+<td align="left">No XENIX semaphores available：没有可用的 XENIX 信号量</td>
+</tr>
+<tr>
+<td align="left">EISNAM</td>
+<td align="left">120</td>
+<td align="left">Is a named type file：是一个有名类型文件</td>
+</tr>
+<tr>
+<td align="left">EREMOTEIO</td>
+<td align="left">121</td>
+<td align="left">Remote I/O error：远程 I/O 错误</td>
+</tr>
+<tr>
+<td align="left">EDQUOT</td>
+<td align="left">122</td>
+<td align="left">Quota exceeded：超出磁盘限额</td>
+</tr>
+<tr>
+<td align="left">ENOMEDIUM</td>
+<td align="left">123</td>
+<td align="left">No medium found：找不到介质</td>
+</tr>
+<tr>
+<td align="left">EMEDIUMTYPE</td>
+<td align="left">124</td>
+<td align="left">Wrong medium type：错误的介质类型</td>
+</tr>
+<tr>
+<td align="left">ECANCELED</td>
+<td align="left">125</td>
+<td align="left">Operation Canceled：操作已取消</td>
+</tr>
+<tr>
+<td align="left">ENOKEY</td>
+<td align="left">126</td>
+<td align="left">Required key not available：需要的关键字不存在</td>
+</tr>
+<tr>
+<td align="left">EKEYEXPIRED</td>
+<td align="left">127</td>
+<td align="left">Key has expired：关键字已过期</td>
+</tr>
+<tr>
+<td align="left">EKEYREVOKED</td>
+<td align="left">128</td>
+<td align="left">Key has been revoked：键值已取消</td>
+</tr>
+<tr>
+<td align="left">EKEYREJECTED</td>
+<td align="left">129</td>
+<td align="left">Key was rejected by service：键值被服务所拒绝</td>
+</tr>
+<tr>
+<td align="left">EOWNERDEAD</td>
+<td align="left">130</td>
+<td align="left">Owner died：拥有者已消逝</td>
+</tr>
+<tr>
+<td align="left">ENOTRECOVERABLE</td>
+<td align="left">131</td>
+<td align="left">State not recoverable：状态无法回复</td>
+</tr>
+<tr>
+<td align="left">ERFKILL</td>
+<td align="left">132</td>
+<td align="left">Operation not possible due to RF-kill：由于 RF-kill 而无法操作</td>
+</tr>
+<tr>
+<td align="left">EHWPOISON</td>
+<td align="left">133</td>
+<td align="left">Memory page has hardware error：内存分页有硬件错误</td>
+</tr>
+</tbody>
+</table>
+<h2 id="windows">Windows套接字错误码<a class="headerlink" href="#windows" title="Permanent link">&para;</a></h2>
+<p>​        Windows 通过 WSAGetLastError 函数获取此线程最后一次失败的 Windows 套接字操作的错误代码</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kt">int</span><span class="w"> </span><span class="nf">WSAGetLastError</span><span class="p">();</span>
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th align="left">返回代码/值</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong>WSA_INVALID_HANDLE</strong>6</td>
+<td align="left">指定的事件对象句柄无效。应用程序尝试使用事件对象，但指定的句柄无效。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_NOT_ENOUGH_MEMORY</strong>8</td>
+<td align="left">内存不足。应用程序使用直接映射到Windows函数的 Windows Sockets 函数。 Windows函数指示缺少所需的内存资源。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_INVALID_PARAMETER</strong>87</td>
+<td align="left">一个或多个参数无效。应用程序使用直接映射到Windows函数的 Windows Sockets 函数。 Windows函数指示一个或多个参数存在问题。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_OPERATION_ABORTED</strong>995</td>
+<td align="left">已中止的重叠操作。由于套接字关闭或 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-wsaioctl"><strong>WSAIoctl</strong></a> 中SIO_FLUSH命令的执行，取消了重叠的操作。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_IO_INCOMPLETE</strong>996</td>
+<td align="left">不处于信号状态的重叠 I/O 事件对象。应用程序已尝试确定尚未完成的重叠操作的状态。 在轮询模式下将 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-wsagetoverlappedresult"><strong>WSAGetOverlappedResult</strong></a> (与 <em>fWait</em> 标志设置为 <strong>FALSE</strong>) 的应用程序，以确定重叠操作何时完成，直到操作完成为止，获取此错误代码。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_IO_PENDING</strong>997</td>
+<td align="left">重叠的操作稍后将完成。 应用程序已启动一个无法立即完成的重叠操作。 操作完成后，稍后会给出完成指示。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEINTR</strong>10004</td>
+<td align="left">中断的函数调用。对 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock2/nf-winsock2-wsacancelblockingcall">WSACancelBlockingCall</a> 的调用中断了阻塞操作。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEBADF</strong>10009</td>
+<td align="left">文件句柄无效。提供的文件句柄无效。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEACCES</strong>10013</td>
+<td align="left">权限被拒绝。尝试以禁止其访问权限的方式访问套接字。 例如，使用 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-setsockopt"><strong>setockopt</strong></a> (SO_BROADCAST) 在未设置广播权限的情况下使用 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-sendto"><strong>sendto</strong></a> 的广播地址。 WSAEACCES 错误的另一个可能原因是，使用 SP4 和) 更高版本的 SP4 在 Windows NT 4.0 上调用<a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-bind"><strong>绑定</strong></a>函数 (时，另一个应用程序、服务或内核模式驱动程序将绑定到具有独占访问权限的同一地址。 此类独占访问是 sp4 及更高版本Windows NT 4.0 的新功能，通过使用 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/winsock/so-exclusiveaddruse">SO_EXCLUSIVEADDRUSE</a> 选项实现。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEFAULT</strong>10014</td>
+<td align="left">地址错误。系统在尝试使用调用的指针参数时检测到无效的指针地址。 如果应用程序传递无效的指针值，或者缓冲区长度过小，则会发生此错误。 例如，如果参数的长度（即 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/winsock/sockaddr-2"><strong>sockaddr</strong></a> 结构）小于 (sockaddr) 的大小。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEINVAL</strong>10022</td>
+<td align="left">参数无效。例如， (提供了一些无效参数，用于指定 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-setsockopt"><strong>setsockopt</strong></a> 函数) 的无效级别。 在某些情况下，它还引用套接字的当前状态，例如，在未侦听的套接字上调用 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-accept"><strong>accept</strong></a> 。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEMFILE</strong>10024</td>
+<td align="left">打开的文件太多。打开的套接字过多。 每个实现的最大可用套接字句柄数（全局、每个进程或每个线程）。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEWOULDBLOCK</strong>10035</td>
+<td align="left">资源暂时不可用。此错误是从无法立即完成的非阻止套接字上的操作返回的，例如，当没有将数据排队从套接字读取时 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-recv"><strong>，</strong></a> 将返回此错误。 这是一个非致命错误，稍后应重试该操作。 WSAEWOULDBLOCK 通常是由于调用非阻止SOCK_STREAM套接字上的 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-connect"><strong>连接</strong></a> 而报告的，因为必须经过一段时间才能建立连接。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEINPROGRESS</strong>10036</td>
+<td align="left">操作正在进行中。阻止操作当前正在执行。 Windows套接字仅允许单个阻塞操作（每个任务或线程）未完成，如果发出任何其他函数调用， (是否引用该函数或其他任何套接字，) 函数失败并出现 WSAEINPROGRESS 错误。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEALREADY</strong>10037</td>
+<td align="left">操作正在进行中。在正在进行的操作的非阻止套接字上尝试了一个操作，即在已连接的非阻止套接字上调用第二次 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-connect"><strong>连接</strong></a> ，或者取消已取消已取消或已完成的 <strong>WSAAsyncGetXbyY</strong>) 异步 (请求。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAENOTSOCK</strong>10038</td>
+<td align="left">非ocket 上的套接字操作。尝试对不是套接字的内容执行操作。 套接字句柄参数未引用有效的套接字，或者对于 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-select"><strong>select</strong></a>， <strong>fd_set</strong> 的成员无效。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEDESTADDRREQ</strong>10039</td>
+<td align="left">所需的目标地址。套接字上的操作中省略了所需的地址。 例如，如果使用远程地址ADDR_ANY调用 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-sendto"><strong>sendto</strong></a> ，则返回此错误。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEMSGSIZE</strong>10040</td>
+<td align="left">消息太长。在数据报套接字上发送的消息大于内部消息缓冲区或其他一些网络限制，或者用于接收数据报的缓冲区小于数据报本身。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEPROTOTYPE</strong>10041</td>
+<td align="left">套接字的协议错误类型。套接字 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-socket"><strong>函数调用</strong></a> 中指定了一个协议，该协议不支持所请求的套接字类型的语义。 例如，不能使用套接字类型SOCK_STREAM指定 ARPA Internet UDP 协议。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAENOPROTOOPT</strong>10042</td>
+<td align="left">协议选项不正确。在 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-getsockopt"><strong>getsockopt</strong></a> 或 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-setsockopt"><strong>setsockopt</strong></a> 调用中指定了未知、无效或不受支持的选项或级别。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEPROTONOSUPPORT</strong>10043</td>
+<td align="left">不支持协议。请求的协议尚未配置到系统中，或不存在任何实现。 例如， <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-socket"><strong>套接字</strong></a> 调用请求SOCK_DGRAM套接字，但指定流协议。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAESOCKTNOSUPPORT</strong>10044</td>
+<td align="left">不支持套接字类型。在此地址族中不存在对指定的套接字类型的支持。 例如，可选类型SOCK_RAW可能在 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-socket"><strong>套接字</strong></a> 调用中选择，并且实现根本不支持SOCK_RAW套接字。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEOPNOTSUPP</strong>10045</td>
+<td align="left">不支持操作。引用的对象类型不支持尝试的操作。 通常，当套接字描述符到不支持此操作的套接字时，通常会尝试接受数据报套接字上的连接。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEPFNOSUPPORT</strong>10046</td>
+<td align="left">不支持协议系列。协议系列尚未配置到系统中，或者不存在任何实现。 此消息的含义与 WSAEAFNOSUPPORT 略有不同。 但是，在大多数情况下可互换，返回其中一条消息的所有Windows套接字函数也指定 WSAEAFNOSUPPORT。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEAFNOSUPPORT</strong>10047</td>
+<td align="left">协议系列不支持地址系列。使用了与请求的协议不兼容的地址。 所有套接字都是使用关联的地址系列 (创建的，即 Internet 协议) AF_INET，以及一种泛型协议类型 (，即SOCK_STREAM) 。 如果在 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-socket"><strong>套接字</strong></a> 调用中显式请求了错误的协议，或者错误系列地址用于套接字（例如 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-sendto"><strong>，在 sendto</strong></a> 中）时，将返回此错误。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEADDRINUSE</strong>10048</td>
+<td align="left">已使用的地址。通常，只允许使用每个套接字地址 (协议/IP 地址/端口) 。 如果应用程序尝试将套接字 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-bind"><strong>绑定到</strong></a> 已用于现有套接字的 IP 地址/端口，或者未正确关闭的套接字，或者仍在关闭过程中的套接字，则会发生此错误。 对于需要将多个套接字 <strong>绑定到</strong> 同一端口号的服务器应用程序，请考虑使用 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-setsockopt"><strong>setsockopt</strong></a> (SO_REUSEADDR) 。 客户端应用程序通常根本不需要调用 <strong>绑定</strong> - <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-connect"><strong>连接</strong></a> 会自动选择未使用的端口。 使用涉及ADDR_ANY) 的通配符地址 (调用 <strong>绑定</strong> 时，可能会延迟 WSAEADDRINUSE 错误，直到提交特定地址。 稍后可能会调用另一个函数，包括 <strong>连接</strong>、 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-listen"><strong>侦听</strong></a>、 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-wsaconnect"><strong>WSAConnect</strong></a> 或 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-wsajoinleaf"><strong>WSAJoinLeaf</strong></a>。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEADDRNOTAVAIL</strong>10049</td>
+<td align="left">无法分配请求的地址。请求的地址在其上下文中无效。 这通常会导致尝试 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-bind"><strong>绑定到</strong></a> 对本地计算机无效的地址。 如果远程地址或端口对远程计算机无效（例如地址或端口 0 () ）无效，则这也可能导致 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-connect"><strong>连接</strong></a>、 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-sendto"><strong>sendto</strong></a>、 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-wsaconnect"><strong>WSAConnect</strong></a>、 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-wsajoinleaf"><strong>WSAJoinLeaf</strong></a> 或 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-wsasendto"><strong>WSASendTo</strong></a> 。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAENETDOWN</strong>10050</td>
+<td align="left">网络已关闭。套接字操作遇到了一个已死的网络。 这可能表明网络系统（也就时说，Windows Sockets DLL 的协议堆栈溢出）、网络接口或局域网本身出现严重故障。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAENETUNREACH</strong>10051</td>
+<td align="left">网络无法访问。已尝试对无法访问的网络执行套接字操作。 这通常意味着本地软件不知道要访问远程主机的路由。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAENETRESET</strong>10052</td>
+<td align="left">重置时网络断开的连接。由于在操作正在进行时检测到故障，连接已中断。 如果尝试在已失败的连接上设置<a href="https://learn.microsoft.com/zh-cn/windows/desktop/winsock/so-keepalive"><strong>SO_KEEPALIVE</strong></a>，<a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-setsockopt"><strong>则 setockopt</strong></a> 也可以返回它。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAECONNABORTED</strong>10053</td>
+<td align="left">软件导致连接中止。由于数据传输超时或协议错误，主机计算机中的软件中止了建立的连接。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAECONNRESET</strong>10054</td>
+<td align="left">按对等方重置连接。远程主机强行关闭现有连接。 这通常会导致远程主机上的对等应用程序突然停止、主机重新启动、主机或远程网络接口被禁用，或者远程主机使用硬关闭 (查看 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-setsockopt"><strong>setsockopt</strong></a> ，详细了解远程套接字上的SO_LINGER选项) 。 如果连接因活动保持活动检测到故障而中断，同时一个或多个操作正在进行中，也可能导致此错误。 正在进行的操作失败，WSAENETRESET。 后续操作失败，WSAECONNRESET。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAENOBUFS</strong>10055</td>
+<td align="left">没有可用的缓冲区空间。由于系统没有足够的缓冲区空间或队列已满，因此无法对套接字执行操作。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEISCONN</strong>10056</td>
+<td align="left">套接字已连接。在已连接的套接字上发出了连接请求。 如果对连接SOCK_DGRAM套接字 (调用 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-sendto"><strong>sendto</strong></a> 来SOCK_STREAM套接字，某些实现也会返回此错误，) 忽略 <strong>sendto</strong> 中的 <em>to</em> 参数，尽管其他实现将此视为合法事件。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAENOTCONN</strong>10057</td>
+<td align="left">套接字未连接。不允许发送或接收数据的请求，因为套接字未连接，并且使用 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-sendto"><strong>sendto</strong></a> 在数据报套接字上发送时 () 未提供地址。 任何其他类型的操作也可能返回此错误，例如，如果连接已重置， <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-setsockopt"><strong>则 setsockopt</strong></a> 设置 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/winsock/so-keepalive"><strong>SO_KEEPALIVE</strong></a> 。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAESHUTDOWN</strong>10058</td>
+<td align="left">套接字关闭后无法发送。不允许发送或接收数据的请求，因为该套接字已在上一次 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-shutdown"><strong>关闭</strong></a> 调用中关闭该方向。 通过调用 <strong>关闭</strong> ，请求关闭部分关闭套接字，这是发送或接收的信号，或者两者都已停止。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAETOOMANYREFS</strong>10059</td>
+<td align="left">引用过多。对某些内核对象的引用过多。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAETIMEDOUT</strong>10060</td>
+<td align="left">连接超时。连接尝试失败，因为连接方在一段时间后未正确响应，或已建立的连接失败，因为连接的主机未能响应。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAECONNREFUSED</strong>10061</td>
+<td align="left">连接被拒绝。无法建立连接，因为目标计算机主动拒绝连接。 这通常会导致尝试连接到在外部主机上处于非活动状态的服务，即没有运行服务器应用程序的服务。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAELOOP</strong>10062</td>
+<td align="left">无法转换名称。无法转换名称。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAENAMETOOLONG</strong>10063</td>
+<td align="left">名称太长。名称组件或名称太长。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEHOSTDOWN</strong>10064</td>
+<td align="left">主机已关闭。由于目标主机关闭，套接字操作失败。 套接字操作遇到死主机。 尚未启动本地主机上的网络活动。 这些条件更有可能由错误 WSAETIMEDOUT 指示。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEHOSTUNREACH</strong>10065</td>
+<td align="left">没有要托管的路由。套接字操作尝试访问无法访问的主机。 请参阅 WSAENETUNREACH。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAENOTEMPTY</strong>10066</td>
+<td align="left">目录不为空。无法删除不为空的目录。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEPROCLIM</strong>10067</td>
+<td align="left">进程过多。Windows套接字实现可能会对可以同时使用它的应用程序数有限制。 如果达到限制，<a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-wsastartup"><strong>WSAStartup</strong></a> 可能会失败，并出现此错误。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEUSERS</strong>10068</td>
+<td align="left">超出用户配额。用户配额不足。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEDQUOT</strong>10069</td>
+<td align="left">超过磁盘配额。磁盘配额不足。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAESTALE</strong>10070</td>
+<td align="left">过时的文件句柄引用。文件句柄引用不再可用。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEREMOTE</strong>10071</td>
+<td align="left">项是远程项。该项在本地不可用。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSASYSNOTREADY</strong>10091</td>
+<td align="left">网络子系统不可用。如果Windows套接字实现目前无法正常工作，则 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-wsastartup"><strong>WSAStartup</strong></a> 将返回此错误，因为它用于提供网络服务的基础系统当前不可用。 用户应检查： 相应的Windows套接字 DLL 文件位于当前路径中。它们不会同时尝试使用多个Windows套接字实现。 如果系统上有多个 Winsock DLL，请确保路径中的第一个 DLL 适用于当前加载的网络子系统。Windows套接字实现文档，以确保当前正确安装和配置所有必要的组件。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAVERNOTSUPPORTED</strong>10092</td>
+<td align="left">Winsock.dll版本范围不足。当前Windows套接字实现不支持应用程序请求的Windows套接字规范版本。 检查没有访问任何旧的 Windows 套接字 DLL 文件。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSANOTINITIALISED</strong>10093</td>
+<td align="left">尚未执行成功的 WSAStartup。应用程序未调用 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-wsastartup"><strong>WSAStartup</strong></a> 或 <strong>WSAStartup</strong> 失败。 应用程序可能会访问当前活动任务不拥有 (的套接字，即尝试在任务) 之间共享套接字，或者 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/winsock/nf-winsock-wsacleanup"><strong>已调用 WSACleanup</strong></a> 多次。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEDISCON</strong>10101</td>
+<td align="left">正在正常关闭。由 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-wsarecv"><strong>WSARecv</strong></a> 和 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-wsarecvfrom"><strong>WSARecvFrom</strong></a> 返回，以指示远程方已启动正常关闭序列。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAENOMORE</strong>10102</td>
+<td align="left">没有更多结果。<a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-wsalookupservicenexta"><strong>WSALookupServiceNext</strong></a> 函数无法返回更多结果。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAECANCELLED</strong>10103</td>
+<td align="left">已取消呼叫。调用 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-wsalookupserviceend"><strong>WSALookupServiceEnd</strong></a> 函数时仍在处理。 已取消呼叫。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEINVALIDPROCTABLE</strong>10104</td>
+<td align="left">过程调用表无效。服务提供程序过程调用表无效。 服务提供商返回了Ws2_32.dll的虚假过程表。 这通常是由一个或多个函数指针为 <strong>NULL</strong> 引起的。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEINVALIDPROVIDER</strong>10105</td>
+<td align="left">服务提供商无效。请求的服务提供程序无效。 如果找不到指定的协议条目， <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Ws2spi/nf-ws2spi-wscgetproviderinfo"><strong>WSCGetProviderInfo</strong></a> 和 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Ws2spi/nf-ws2spi-wscgetproviderinfo32"><strong>WSCGetProviderInfo32</strong></a> 函数将返回此错误。 如果服务提供商返回的版本号不是 2.0，也会返回此错误。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEPROVIDERFAILEDINIT</strong>10106</td>
+<td align="left">服务提供程序无法初始化。无法加载或初始化请求的服务提供程序。 如果无法加载服务提供商的 DLL， (<a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/libloaderapi/nf-libloaderapi-loadlibrarya"><strong>LoadLibrary</strong></a> 失败) 或提供程序的 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Ws2spi/nf-ws2spi-wspstartup"><strong>WSPStartup</strong></a> 或 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Ws2spi/nf-ws2spi-nspstartup"><strong>NSPStartup</strong></a> 函数失败，则返回此错误。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSASYSCALLFAILURE</strong>10107</td>
+<td align="left">系统调用失败。不应失败的系统调用失败。 这是一个通用错误代码，在各种条件下返回。 当从不失败的系统调用失败时返回。 例如，如果对 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-wsawaitformultipleevents"><strong>WaitForMultipleEvents 的</strong></a> 调用失败，或者其中一个注册表函数无法尝试操作协议/命名空间目录。 当提供程序不返回 SUCCESS 且不提供扩展错误代码时返回。 可以指示服务提供商实现错误。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSASERVICE_NOT_FOUND</strong>10108</td>
+<td align="left">找不到服务。目前尚不清楚此类服务。 无法在指定的名称空间中找到该服务。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSATYPE_NOT_FOUND</strong>10109</td>
+<td align="left">找不到类类型。未找到指定的类。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_E_NO_MORE</strong>10110</td>
+<td align="left">没有更多结果。<a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-wsalookupservicenexta"><strong>WSALookupServiceNext</strong></a> 函数无法返回更多结果。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_E_CANCELLED</strong>10111</td>
+<td align="left">已取消呼叫。调用 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/Winsock2/nf-winsock2-wsalookupserviceend"><strong>WSALookupServiceEnd</strong></a> 函数时仍在处理。 已取消呼叫。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAEREFUSED</strong>10112</td>
+<td align="left">数据库查询被拒绝。数据库查询失败，因为它被主动拒绝。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSAHOST_NOT_FOUND</strong>11001</td>
+<td align="left">找不到主机。无法识别这种主机。 该名称不是官方主机名或别名，或者无法在查询 () 中找到该名称。 对于协议和服务查询，也可能返回此错误，这意味着在相关数据库中找不到指定的名称。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSATRY_AGAIN</strong>11002</td>
+<td align="left">找不到非授权主机。这通常是主机名解析过程中的临时错误，意味着本地服务器未收到来自权威服务器的响应。 在稍后的某个时间进行的重试可能成功。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSANO_RECOVERY</strong>11003</td>
+<td align="left">这是不可恢复的错误。这表示在数据库查找过程中发生了某种不可恢复的错误。 这可能是因为找不到与 BSD 兼容的 HOSTS、SERVICES 或 PROTOCOLS 文件) (的数据库文件，或者服务器返回 DNS 请求时出现严重错误。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSANO_DATA</strong>11004</td>
+<td align="left">有效名称，没有请求类型的数据记录。请求的名称有效，在数据库中找到，但未解析正确的关联数据。 通常的示例是使用 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/wsipv6ok/nf-wsipv6ok-gethostbyname"><strong>gethostbyname</strong></a> 或 <a href="https://learn.microsoft.com/zh-cn/windows/desktop/api/wsipv6ok/nf-wsipv6ok-wsaasyncgethostbyname"><strong>WSAAsyncGetHostByName</strong></a> () 使用 DNS (域名服务器) 的主机名到地址转换尝试。 返回 MX 记录，但没有 A 记录，指示主机本身存在，但不可直接访问。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_RECEIVERS</strong>11005</td>
+<td align="left">QoS 接收器。至少有一个 QoS 储备已到达。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_SENDERS</strong>11006</td>
+<td align="left">QoS 发送方。至少有一个 QoS 发送路径已到达。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_NO_SENDERS</strong>11007</td>
+<td align="left">无 QoS 发送方。没有 QoS 发送方。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_NO_RECEIVERS</strong>11008</td>
+<td align="left">QoS 无接收器。没有 QoS 接收器。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_REQUEST_CONFIRMED</strong>11009</td>
+<td align="left">已确认 QoS 请求。已确认 QoS 保留请求。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_ADMISSION_FAILURE</strong>11010</td>
+<td align="left">QoS 允许错误。由于缺少资源，出现 QoS 错误。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_POLICY_FAILURE</strong>11011</td>
+<td align="left">QoS 策略失败。QoS 请求被拒绝，因为策略系统无法在现有策略中分配请求的资源。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_BAD_STYLE</strong>11012</td>
+<td align="left">QoS 错误样式。遇到未知或冲突的 QoS 样式。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_BAD_OBJECT</strong>11013</td>
+<td align="left">QoS 错误对象。一般情况下，filterspec 的某些部分或提供程序特定的缓冲区遇到了问题。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_TRAFFIC_CTRL_ERROR</strong>11014</td>
+<td align="left">QoS 流量控制错误。基础流量控制 (TC) API 错误，因为通用 QoS 请求已转换为 TC API 的本地强制实施。 这可能是由于内存不足错误或内部 QoS 提供程序错误所致。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_GENERIC_ERROR</strong>11015</td>
+<td align="left">QoS 泛型错误。常规 QoS 错误。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_ESERVICETYPE</strong>11016</td>
+<td align="left">QoS 服务类型错误。在 QoS 流spec 中找到无效或无法识别的服务类型。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_EFLOWSPEC</strong>11017</td>
+<td align="left">QoS 流spec 错误。<a href="https://learn.microsoft.com/zh-cn/windows/win32/api/winsock2/ns-winsock2-qos"><strong>在 QOS</strong></a> 结构中找到无效或不一致的 flowspec。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_EPROVSPECBUF</strong>11018</td>
+<td align="left">QoS 提供程序缓冲区无效。特定于 QoS 提供程序的缓冲区无效。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_EFILTERSTYLE</strong>11019</td>
+<td align="left">QoS 筛选器样式无效。使用了无效的 QoS 筛选器样式。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_EFILTERTYPE</strong>11020</td>
+<td align="left">QoS 筛选器类型无效。使用了无效的 QoS 筛选器类型。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_EFILTERCOUNT</strong>11021</td>
+<td align="left">QoS 筛选器计数不正确。FLOWDESCRIPTOR 中指定了不正确的 QoS FILTERSPEC 数。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_EOBJLENGTH</strong>11022</td>
+<td align="left">QoS 对象长度无效。在 QoS 提供程序特定的缓冲区中指定了具有无效 ObjectLength 字段的对象。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_EFLOWCOUNT</strong>11023</td>
+<td align="left">QoS 流计数不正确。QoS 结构中指定了错误的流描述符数。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_EUNKOWNPSOBJ</strong>11024</td>
+<td align="left">无法识别的 QoS 对象。在特定于 QoS 提供程序的缓冲区中找到一个无法识别的对象。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_EPOLICYOBJ</strong>11025</td>
+<td align="left">QoS 策略对象无效。在特定于 QoS 提供程序的缓冲区中找到无效的策略对象。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_EFLOWDESC</strong>11026</td>
+<td align="left">QoS 流描述符无效。在流描述符列表中找到了无效的 QoS 流描述符。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_EPSFLOWSPEC</strong>11027</td>
+<td align="left">特定于 QoS 提供程序的流spec 无效。在特定于 QoS 提供程序的缓冲区中找到无效或不一致的 flowspec。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_EPSFILTERSPEC</strong>11028</td>
+<td align="left">特定于 QoS 提供程序的筛选器spec 无效。在特定于 QoS 提供程序的缓冲区中找到无效的 FILTERSPEC。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_ESDMODEOBJ</strong>11029</td>
+<td align="left">QoS 形状放弃模式对象无效。在特定于 QoS 提供程序的缓冲区中找到无效的形状放弃模式对象。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_ESHAPERATEOBJ</strong>11030</td>
+<td align="left">QoS 整形速率对象无效。在 QoS 提供程序特定的缓冲区中找到无效的整形速率对象。</td>
+</tr>
+<tr>
+<td align="left"><strong>WSA_QOS_RESERVED_PETYPE</strong>11031</td>
+<td align="left">保留策略 QoS 元素类型。在特定于 QoS 提供程序的缓冲区中找到保留的策略元素。</td>
+</tr>
+</tbody>
+</table>
+<p>参考资料：<a href="https://learn.microsoft.com/zh-cn/windows/win32/api/winsock/nf-winsock-wsagetlasterror">WSAGetLastError 函数 (winsock.h) - Win32 apps | Microsoft Learn</a></p>
+<h2 id="openssl">OpenSSL错误码<a class="headerlink" href="#openssl" title="Permanent link">&para;</a></h2>
+<p>​       最近安全越来越重要了，因此 OpenSSL 也常常应用于网络通信中。OpenSSL 通过    <code>SSL_get_error</code>获取错误信息</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;openssl/ssl.h&gt;</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="kt">int</span><span class="w"> </span><span class="nf">SSL_get_error</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">SSL</span><span class="w"> </span><span class="o">*</span><span class="n">ssl</span><span class="p">,</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">ret</span><span class="p">);</span>
+</code></pre></div>
+<p><code>SSL_get_error()</code> 必须在执行 TLS/SSL I/O 操作的同一线程中使用，并且中间不应出现其他 OpenSSL 函数调用。在尝试进行 TLS/SSL I/O 操作之前，当前线程的错误队列必须是空的，否则 <code>SSL_get_error()</code>将不能可靠地工作。</p>
+<table>
+<thead>
+<tr>
+<th align="left">错误码</th>
+<th>值</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">SSL_ERROR_NONE</td>
+<td>0</td>
+<td align="left">TLS/SSL I/O 操作完成。当且仅当 ret&gt;0 时，该结果代码被返回。</td>
+</tr>
+<tr>
+<td align="left">SSL_ERROR_SSL</td>
+<td>1</td>
+<td align="left">SSL 库中发生了一个不可恢复的、致命的错误，通常是一个协议错误。</td>
+</tr>
+<tr>
+<td align="left">SSL_ERROR_WANT_READ、SSL_ERROR_WANT_WRITE</td>
+<td>2、3</td>
+<td align="left">操作没有完成，以后可以重试。详情查看看参考资料。</td>
+</tr>
+<tr>
+<td align="left">SSL_ERROR_WANT_X509_LOOKUP</td>
+<td>4</td>
+<td align="left">操作没有完成，因为 SSL_CTX_set_client_cert_cb() 设置的应用程序回调要求再次被调用。</td>
+</tr>
+<tr>
+<td align="left">SSL_ERROR_SYSCALL</td>
+<td>5</td>
+<td align="left">发生了一些不可恢复的、致命的 I/O 错误。OpenSSL 的错误队列可能包含更多的错误信息。对于 Unix 系统上的套接字 I/O，详情请参考 errno。</td>
+</tr>
+<tr>
+<td align="left">SSL_ERROR_ZERO_RETURN</td>
+<td>6</td>
+<td align="left">TLS/SSL 对等体通过发送 close_notify 警报，关闭连接进行写入。请注意，SSL_ERROR_ZERO_RETURN 不一定表示底层传输已经关闭。详情查看看参考资料。</td>
+</tr>
+<tr>
+<td align="left">SSL_ERROR_WANT_CONNECT、SSL_ERROR_WANT_ACCEPT</td>
+<td>7、8</td>
+<td align="left">操作没有完成；以后应该再次调用同一个TLS/SSL I/O函数。底层的BIO还没有连接到对等体，调用会在connect()/accept()中阻塞。</td>
+</tr>
+<tr>
+<td align="left">SSL_ERROR_WANT_ASYNC</td>
+<td>9</td>
+<td align="left">操作没有完成，因为一个异步引擎仍在处理数据。只有在使用 SSL_CTX_set_mode(3) 或 SSL_set_mode(3) 将模式设置为 SSL_MODE_ASYNC，并且正在使用具有异步能力的引擎时，才会发生这种情况。</td>
+</tr>
+<tr>
+<td align="left">SSL_ERROR_WANT_ASYNC_JOB</td>
+<td>10</td>
+<td align="left">异步作业无法启动，因为池中没有可用的异步作业。只有在使用SSL_CTX_set_mode(3)或SSL_set_mode(3)将模式设置为SSL_MODE_ASYNC，并且通过调用ASYNC_init_thread(3)对异步作业池设置了最大限制时，才会发生这种情况。</td>
+</tr>
+<tr>
+<td align="left">SSL_ERROR_WANT_CLIENT_HELLO_CB</td>
+<td>11</td>
+<td align="left">操作没有完成，因为 SSL_CTX_set_client_hello_cb() 设置的应用程序回调要求再次被调用。</td>
+</tr>
+<tr>
+<td align="left">SSL_ERROR_WANT_RETRY_VERIFY</td>
+<td>12</td>
+<td align="left">证书验证尚未能够成功</td>
+</tr>
+</tbody>
+</table>
+<p>参考资料：</p>
+<ol>
+<li>错误 0-11：<a href="https://www.openssl.org/docs/manmaster/man3/SSL_get_error.html">/docs/manmaster/man3/SSL_get_error.html (openssl.org)</a></li>
+<li>错误 12：<a href="https://www.openssl.org/docs/manmaster/man3/SSL_CTX_set_cert_verify_callback.html">/docs/manmaster/man3/SSL_CTX_set_cert_verify_callback.html (openssl.org)</a></li>
+</ol>
+
+
+  
+
+
+
+  <form class="md-feedback" name="feedback" hidden>
+    <fieldset>
+      <legend class="md-feedback__title">
+        Was this page helpful?
+      </legend>
+      <div class="md-feedback__inner">
+        <div class="md-feedback__list">
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page was helpful" data-md-value="1">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m7 0c0 .8-.7 1.5-1.5 1.5S14 10.3 14 9.5 14.7 8 15.5 8s1.5.7 1.5 1.5m-5 7.73c-1.75 0-3.29-.73-4.19-1.81L9.23 14c.45.72 1.52 1.23 2.77 1.23s2.32-.51 2.77-1.23l1.42 1.42c-.9 1.08-2.44 1.81-4.19 1.81Z"/></svg>
+            </button>
+          
+            <button class="md-feedback__icon md-icon" type="submit" title="This page could be improved" data-md-value="0">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 12a8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8 8 8 0 0 0 8-8m2 0a10 10 0 0 1-10 10A10 10 0 0 1 2 12 10 10 0 0 1 12 2a10 10 0 0 1 10 10m-6.5-4c.8 0 1.5.7 1.5 1.5s-.7 1.5-1.5 1.5-1.5-.7-1.5-1.5.7-1.5 1.5-1.5M10 9.5c0 .8-.7 1.5-1.5 1.5S7 10.3 7 9.5 7.7 8 8.5 8s1.5.7 1.5 1.5m2 4.5c1.75 0 3.29.72 4.19 1.81l-1.42 1.42C14.32 16.5 13.25 16 12 16s-2.32.5-2.77 1.23l-1.42-1.42C8.71 14.72 10.25 14 12 14Z"/></svg>
+            </button>
+          
+        </div>
+        <div class="md-feedback__note">
+          
+            <div data-md-value="1" hidden>
+              
+              
+                
+              
+              Thanks for your feedback!
+            </div>
+          
+            <div data-md-value="0" hidden>
+              
+              
+                
+              
+              Thanks for your feedback! Help us improve this page by using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+            </div>
+          
+        </div>
+      </div>
+    </fieldset>
+  </form>
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            回到页面顶部
+          </button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../ComputerNetworking/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 计算机网络" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  上一页
+                </span>
+                计算机网络
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../PersonalNAS/" class="md-footer__link md-footer__link--next" aria-label="下一页: 个人 NAS 解决方案" rel="next">
+            <div class="md-footer__title">
+              <div class="md-ellipsis">
+                <span class="md-footer__direction">
+                  下一页
+                </span>
+                个人 NAS 解决方案
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2023 <a href="https://github.com/Fu-Qingchen" target="_blank" rel="noopener">Fu_Qingchen</a>
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.annotate", "navigation.tracking", "navigation.tabs", "navigation.indexes", "navigation.top", "navigation.footer", "search.suggest", "search.highlight"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.efa0ade1.min.js"></script>
+      
+    
+  </body>
+</html>
